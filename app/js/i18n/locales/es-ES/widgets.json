@@ -1,7 +1,7 @@
 {
   "lang_code":"es-widgets",
   "apps":{
-    "name":"Aplicaciónes",
+    "name":"Aplicaciones",
     "desc":"Muestra tus aplicaciones Google Chrome instalados actualmente.",
     "settings":{
       "format":"Formato widget",
@@ -42,7 +42,7 @@
       "title":"Marcador de título",
       "title_placeholder":"Google",
       "url":"Bookmark URL",
-      "url_placeholder":"http:\/\/www.google.com\/",
+      "url_placeholder":"http://www.google.com/",
       "save":"Guardar"
     },
     "new_caption":"Nuevo",
@@ -89,10 +89,10 @@
       "timezone_local":"Local",
       "format":"Formato de reloj",
       "format_options":{
-        "ampm":"AM\/PM - Digital",
+        "ampm":"AM/PM - Digital",
         "24hour":"24 horas - Digital",
         "analog":"12 horas - analógico",
-        "ampmseconds":"AM\/PM - Digital, No segundos",
+        "ampmseconds":"AM/PM - Digital, No segundos",
         "24hourseconds":"24 horas - Digital, No segundos"
       },
       "sound":"Sonido de Alerta"
@@ -184,7 +184,7 @@
     "desc":"Muestra los elementos principales en Reddit para cualquier subreddit dado.",
     "settings":{
       "subreddit":"Subreddit",
-      "subreddit_help":"Introduzca cualquier subreddit por la parte más allá de <b>\/r\/<\/b> cuando en Reddit.\n<br \/><br \/>\nPor ejemplo, la Tecnología es: <a href=\"http:\/\/www.reddit.com\/r\/technology\">http:\/\/www.reddit.com\/r\/technology<\/a>, por lo tanto, es necesario introducir <b>tecnología<\/b>",
+      "subreddit_help":"Introduzca cualquier subreddit por la parte más allá de <b>/r/</b> cuando en Reddit.\n<br /><br />\nPor ejemplo, la Tecnología es: <a href=\"http://www.reddit.com/r/technology\">http://www.reddit.com/r/technology</a>, por lo tanto, es necesario introducir <b>tecnología</b>",
       "subreddit_placeholder":"Introduzca un subreddit para mostrar enlaces de. (es decir, tecnología)",
       "sort":"Orden de clasificación",
       "sort_options":{
@@ -260,7 +260,7 @@
         "six":"Seis pequeñas"
       },
       "from":"Mostrar Videos de",
-      "from_help":"Este debe ser un nombre de usuario <b>exactamente<\/b> como se muestra en la dirección URL de la página cuando estás viendo su perfil.\n<br \/><br \/>\neste valor no incluye espacios.",
+      "from_help":"Este debe ser un nombre de usuario <b>exactamente</b> como se muestra en la dirección URL de la página cuando estás viendo su perfil.\n<br /><br />\neste valor no incluye espacios.",
       "from_placeholder":"Deje en blanco para mostrar Videos Top",
       "open":"Resultados de búsqueda abierta"
     },
@@ -294,9 +294,9 @@
     "desc":"Displays a link, optionally with a title and thumbnail",
     "settings":{
       "link":"URL del Enlace",
-      "link_placeholder":"http:\/\/www.google.com\/",
+      "link_placeholder":"http://www.google.com/",
       "image":"URL de la imagen",
-      "image_placeholder":"http:\/\/www.example.com\/image.png",
+      "image_placeholder":"http://www.example.com/image.png",
       "color":"Color de fondo del imagen",
       "style":"Estilo de Imagen",
       "style_fill":"Llenar",
@@ -372,11 +372,11 @@
     "desc":"Muestra varias métricas de un perfil de Google Analytics.",
     "sessions":"sesiones",
     "pageviews":"Visitas de Pagina",
-    "pagesvisit":"Páginas\/visita",
+    "pagesvisit":"Páginas/visita",
     "bouncerate":"Tasa de rebote",
     "completions":"Terminaciones",
     "noprofile_title":"No profile selected",
-    "noprofile":"No parece que se ha seleccionado un perfil todavía!\n<br \/><br \/>\nPruebe a seleccionar una vía el icono de llave inglesa en la parte superior derecha.",
+    "noprofile":"No parece que se ha seleccionado un perfil todavía!\n<br /><br />\nPruebe a seleccionar una vía el icono de llave inglesa en la parte superior derecha.",
     "settings":{
       "profile":"PERFIL"
     }
@@ -393,7 +393,6 @@
   "currency":{
     "name":"Monedas",
     "desc":"¡ Convertir entre cualquiera de las dos monedas 169.",
-    "to_label":"para",
     "recently_used":"Usadas Recientemente"
   },
   "dictionary":{
@@ -425,7 +424,7 @@
     "desc":"Muestra una página web de su elección dentro de un iframe.",
     "settings":{
       "url":"Marco URL",
-      "url_placeholder":"es decir, http:\/\/www.google.com\/",
+      "url_placeholder":"es decir, http://www.google.com/",
       "height":"Altura del marco",
       "padding":"Relleno"
     }
@@ -519,9 +518,9 @@
       "5d":"5d",
       "1m":"1m",
       "3m":"3m",
-      "1y":"1y",
-      "5y":"5y",
-      "max":"max"
+      "1y":"1a",
+      "5y":"5a",
+      "max":"máx"
     },
     "open":"abrir",
     "prev_close":"Previous Close",
@@ -531,9 +530,9 @@
     "52low":"52 week low",
     "volume":"volumen",
     "avg_volume":"Avg. Volume",
-    "shares":"Shares",
+    "shares":"Veces compartido",
     "cap":"Market Cap",
-    "pe":"Price \/ Earnings",
+    "pe":"Precio / Ganancias",
     "eps":"EPS",
     "beta":"Beta",
     "inst_own":"Inst. own"
@@ -579,15 +578,23 @@
       }
     },
     "to_home":"a casa",
-    "to_work":"para trabajar"
+    "to_work":"para trabajar",
+    "hour":"%s hora",
+    "hours":"%s horas",
+    "hours_letter":"%sh",
+    "minute":"%s minuto",
+    "minutes":"%s minutos",
+    "minute_short":"%s min",
+    "minutes_short":"%s minutos",
+    "minutes_letter":"%sm"
   },
   "translate":{
     "name":"Traducir",
     "desc":"Lets you quickly translate to and from 90 languages as you type",
-    "from_placeholder":"Start typing here",
-    "to_placeholder":"Translated text will appear here",
-    "detect_lang":"Detect language",
-    "translating":"Translating...",
+    "from_placeholder":"Comienza escribiendo aquí",
+    "to_placeholder":"El texto traducido aparecerá aquí",
+    "detect_lang":"Detectar idioma",
+    "translating":"Traduciendo...",
     "unknown":"Desconocido"
   },
   "unread":{
@@ -615,28 +622,28 @@
     "settings":{
       "location":"Localización(es)",
       "location_placeholder":"Escriba una ubicación y pulse Enter",
-      "units":"Units",
+      "units":"Unidades",
       "units_imperial":"Imperial (Fahrenheit)",
       "units_metric":"Metric (Celsius)",
       "enabled":"Habilitado",
       "disabled":"Deshabilitado",
-      "forecast":"Forecasts",
-      "hourly":"Hourly forecasts"
+      "forecast":"Previsiones",
+      "hourly":"Pronósticos por horas"
     },
     "more":"Más",
-    "less":"Less",
+    "less":"Menos",
     "wind":"Velocidad de viento",
     "precipitation":"Precip",
     "uv":"UV index",
-    "feelslike":"Feels like",
-    "barometer":"Barometer",
-    "visibility":"Visibility",
+    "feelslike":"Sensación",
+    "barometer":"Barómetro",
+    "visibility":"Visibilidad",
     "humidity":"Humedad",
     "dewpoint":"Dew point",
-    "moonphase":"Moon",
-    "sunrise":"Sunrise",
-    "sunset":"Sunset",
-    "moonrise":"Moonrise",
-    "moonset":"Moonset"
+    "moonphase":"Luna",
+    "sunrise":"Amanecer",
+    "sunset":"Atardecer",
+    "moonrise":"Salida de la luna",
+    "moonset":"Puesta de la Luna"
   }
 }

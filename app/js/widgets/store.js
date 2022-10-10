@@ -50,7 +50,7 @@ define(
 
 						var id = parseInt($(e.currentTarget).attr("data-id")),
 							widget = Registry.get(id),
-							view = Registry.createInstance(new Backbone.Model({ id: id }), true);
+							view = Registry.createInstance(new Registry.InstanceModel({ id: id }), true);
 
 						// The getDesc method might need to load the template remotely,
 						// so it needs to be async. But, in a compiled version this
@@ -66,13 +66,15 @@ define(
 
 							wModal.content = wModal.$(".content");
 
+							Track.FB.logEvent("VIEWED_CONTENT", null, { fb_content_type: "page", fb_content_id: "widgets/" + widget.name });
+
 							Track.pageview("Store: " + widget.name, "/store/" + widget.name);
 
 							wModal.content.find(".sizes").sortable({
 								group: "columns",
 								drop: false
 							}).find("section.handle").on("sortabledragstart", function(e, item) {
-								var newView = Registry.createInstance(new Backbone.Model({
+								var newView = Registry.createInstance(new Registry.InstanceModel({
 									id: id,
 									size: item.attr("data-size")
 								}));
@@ -137,6 +139,8 @@ define(
 					this.$el.removeClass("content").addClass("wrapper").html(render("store", {
 						widgets: this.model.get("widgets")
 					}));
+
+					Track.FB.logEvent("VIEWED_CONTENT", null, { fb_content_type: "page", fb_content_id: "widgets" });
 
 					return this;
 				}

@@ -1,7 +1,7 @@
 /**
  * The tabs view.  This does the actual rendering of data, creaton of columns and widget insertion.
  */
-define(["jquery", "lodash", "backbone", "core/status", "core/analytics", "i18n/i18n"], function($, _, Backbone, Status, Track, Translate) {
+define(["jquery", "lodash", "backbone", "core/auth", "core/status", "core/analytics", "i18n/i18n"], function($, _, Backbone, Auth, Status, Track, Translate) {
 	var GRID_SIZE = 10;
 
 	var view = Backbone.View.extend({
@@ -11,12 +11,16 @@ define(["jquery", "lodash", "backbone", "core/status", "core/analytics", "i18n/i
 		},
 
 		initialize: function() {
-			this.model.on("columns:sort columns:update columns:reset columns:views:change update:columns change:fixed change:isGrid", function() {
+			this.model.on("columns:sort columns:update columns:reset columns:views:change update:columns change:fixed change:isGrid change:adPlacement", function() {
 				var options = _.last(arguments);
 
 				if (!(options && options.noRefresh)) {
 					this.render();
 				}
+			}, this);
+
+			this.once("inserted", function() {
+				this._inserted = true;
 			}, this);
 
 			this.render(true);
@@ -234,6 +238,62 @@ define(["jquery", "lodash", "backbone", "core/status", "core/analytics", "i18n/i
 		},
 
 
+		/**
+		 * Constructs a block ad element and appends it to the provided element
+		 *
+		 * @param   {Boolean}  active       If the tab is currently active
+		 * @param   {Element}  el           The element the ad should be appended to
+		 * @param   {String}   [placement]  The id of the placement for this ad
+		 */
+		insertAd: function(active, el, placement) {
+			if (Auth.adFree) {
+				return;
+			}
+
+			placement = placement || this.model.get("adPlacement") || "widget_block";
+
+			var leaderboard = placement === "header_leaderboard" || placement === "footer_leaderboard",
+				adId = _.uniqueId("blockAd"),
+				ad = document.createElement(leaderboard ? "div" : "section");
+
+			ad.setAttribute("class", "ad-unit" + (leaderboard ? (placement === "header_leaderboard" ? " top" : " bottom") : ""));
+
+			ad.setAttribute("id", adId);
+
+			el.appendChild(ad);
+
+
+			// We avoid inflating impressions by only displaying the ad once the tab is visible
+			// This could be modified to preload the various scripts and only show the ad itself later, but that causes issues with certain ads
+			var displayAd = function() {
+				var rightNow = new Date().toISOString().slice(0,10).replace(/-/g,"");
+				ad.innerHTML = '<button type="button" class="hide-ad"></button>' +
+					'<iframe src="https://ichro.me/adframe/' + placement + "?refresh=" + rightNow + '#' + adId + '" style="' + (leaderboard ? "width:728px;height:90px;" : "width:300px;height:250px;") + '" seamless></iframe>';
+			};
+
+			this.once("render:complete", function() {
+				if (this._inserted && this.$el.hasClass("active")) {
+					displayAd();
+				}
+				else if (this._inserted) {
+					this.once("displayed", displayAd);
+				}
+				else {
+					this.once("inserted", function() {
+						if (this.$el.hasClass("active")) {
+							displayAd();
+						}
+						else {
+							this.once("displayed", displayAd);
+						}
+					}, this);
+				}
+			}, this);
+
+			return true;
+		},
+
+
 		render: function(initial) {
 			// Remove sortable
 			if (initial !== true) {
@@ -250,8 +310,34 @@ define(["jquery", "lodash", "backbone", "core/status", "core/analytics", "i18n/i
 
 			var isGrid = this.model.get("isGrid");
 
+			// Set the grid class
+			this.el.classList.toggle("grid", isGrid);
+
 			// We use native methods here for speed
 			this.el.innerHTML = '<div class="remove">' + Translate("remove_widget") + '</div>';
+
+
+
+			var adColumn = 0,
+				adInserted = false,
+				adPlacement = this.model.get("adPlacement"),
+				insertAd = this.insertAd.bind(this, this.$el.hasClass("active"));
+
+			// If this is a grid-based or empty tab, and the user hasn't chosen to have a header leaderboard,
+			// default to a footer one since block-based ones don't work
+			if (!Auth.adFree && adPlacement !== "header_leaderboard" && (isGrid || !_.reduce(this.model.columns, function(e, v) { return e + v.length; }, 0))) {
+				adPlacement = "footer_leaderboard";
+			}
+
+			if (adPlacement === "header_leaderboard" || adPlacement === "footer_leaderboard") {
+				insertAd(this.el, adPlacement);
+
+				adInserted = true;
+			}
+
+			if (adPlacement === "right_block") {
+				adColumn = this.model.columns.length - 1;
+			}
 
 
 			var main = document.createElement("main");
@@ -259,7 +345,7 @@ define(["jquery", "lodash", "backbone", "core/status", "core/analytics", "i18n/i
 			main.setAttribute("class", "widgets-container" + (this.model.get("fixed") && !isGrid ? " fixed" : "") + (isGrid ? " grid" : ""));
 
 
-			var models = _.map(this.model.columns, function(collection) {
+			var models = _.map(this.model.columns, function(collection, columnIndex) {
 				var column = main;
 
 				if (!isGrid) {
@@ -270,9 +356,36 @@ define(["jquery", "lodash", "backbone", "core/status", "core/analytics", "i18n/i
 					main.appendChild(column);
 				}
 
-				_.each(collection.views, function(e) {
+				_.each(collection.views, function(e, i) {
+					if (adInserted || isGrid || columnIndex !== adColumn) {
+						return column.appendChild(e.el);
+					}
+
+
+					var size = e.model.get("size");
+
+					// Insert the ad before the widget if
+					if (
+						size !== "tiny" && i !== 0 // This isn't a tiny widget and the previous ones were (if they weren't the ad would already be in)
+					) {
+						adInserted = insertAd(column, adPlacement);
+					}
+
 					column.appendChild(e.el);
+
+					// Insert the ad after the widget if
+					if (
+						!adInserted &&
+						size !== "tiny" || // This isn't a tiny widget
+						size === "tiny" && i === 3 // This is the 4th tiny widget in a row
+					) {
+						adInserted = insertAd(column, adPlacement);
+					}
 				});
+
+				if (columnIndex === adColumn && !isGrid && !adInserted) {
+					adInserted = insertAd(column, adPlacement);
+				}
 
 				return collection.models;
 			});
@@ -285,7 +398,7 @@ define(["jquery", "lodash", "backbone", "core/status", "core/analytics", "i18n/i
 				var max = this.el.offsetHeight - 50;
 
 				// This is the number of pixels the bottom of the furthest widget is from the top
-				var btm = _.max(_.each(_.flatten(models), function(e) {
+				var btm = _.max(_.map(_.flatten(models), function(e) {
 					var loc = e.get("loc");
 
 					if (loc) {
@@ -308,6 +421,8 @@ define(["jquery", "lodash", "backbone", "core/status", "core/analytics", "i18n/i
 
 
 			this.sortable();
+
+			this.trigger("render:complete");
 
 			return this;
 		}

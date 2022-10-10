@@ -13,6 +13,21 @@
 	},
 
 	"remove_widget": "Remove",
+	"hide_banner": "Hide this banner",
+
+	"hide_ad": {
+		"content": "Would you like to hide ads until you use iChrome next, or upgrade to remove them permanently?",
+		"upgrade": "Upgrade",
+		"hide": "Hide ads"
+	},
+
+	"upgrade_to_pro": {
+		"title-weather": "Hourly Weather",
+		"title-default": "Upgrade",
+		"content-default": "Please upgrade to Pro version to view hourly weather.",
+		"upgrade": "Upgrade",
+		"close": "Close"
+	},
 
 	"alert": {
 		"default_button": "Dismiss",
@@ -39,6 +54,19 @@
 			"sign_in_desc": "Sign in with your Google account before getting started to securely save your changes online.",
 			"sign_in_desc2": "You can stay signed out if you want, but your page won't be saved online and you won't be able to access it from other computers.",
 			"sign_in_button": "Sign in with Google",
+
+			"pro_title": "iChrome Pro",
+			"pro_desc1": "Upgrade to iChrome Pro to get:",
+			"pro_desc2": "Ad-free experience",
+			"pro_desc3": "Hourly Weather Forecasts up to 10 days out",
+			"pro_desc4": "Team-specific sports news",
+			"pro_desc5": "Real Time stock prices with extended and historical data",
+			"pro_desc6": "Dark and Transparent Themes - See more of your background",
+			"pro_desc7": "A completely ad-free experience",
+			"pro_desc8": "Prioritized Support and Suggestions",
+			"pro_desc9": "And more…",
+			"pro_upgrade": "Upgrade to Pro for only $2",
+			"pro_mback": "Try iChrome Pro Risk Free with our 30 Day Money Back Guarantee",
 
 			"have_account": "It looks like you already have an account!",
 			"have_account_desc": "All your tabs and widgets are ready to use!",
@@ -99,8 +127,13 @@
 	},
 
 	"toolbar": {
-		"placeholder": "Enter your terms",
+		"placeholder": "Search the web",
 		"placeholder_ok": "Enter your terms or say \"OK, Google\"",
+
+		"suggestions": {
+			"url_subtext": "Visit URL",
+			"capture_notice": "iChrome handles searches you normally make from the Omnibox. You can disable this at any time from the settings"
+		},
 
 		"apps": {
 			"search":	"Search",
@@ -116,8 +149,10 @@
 	},
 
 	"menu": {
+		"notifications":	"Notifications",
 		"settings":			"Settings",
 		"widgets":			"Widgets",
+		"support":			"Support",
 		"editing":			"Editing",
 		"editing_enabled":	"Enabled",
 		"editing_disabled":	"Disabled",
@@ -150,7 +185,8 @@
 			"visual_sections": {
 				"background": "Background",
 				"layout": "Layout",
-				"theme": "App theme"
+				"theme": "App theme",
+				"ad_placement": "Ad placement"
 			},
 
 			"toolbar": "Toolbar",
@@ -162,6 +198,7 @@
 
 			"tabs": "Tabs",
 			"widgets": "Widgets",
+			"ads": "Ads",
 			"pro": "Pro",
 			"accounts": "Account",
 			"misc": "Miscellaneous",
@@ -222,7 +259,8 @@
 				"title": "Style",
 				"desc": "This controls the style of the toolbar.  It can either appear normally or as an out of the way button",
 				"normal": "Normal",
-				"button": "Button"
+				"button": "Button",
+				"button_ns": "No search bar"
 			},
 
 			"search": {
@@ -230,10 +268,11 @@
 				"desc": "These settings control how the search box and voice search function",
 
 				"engine": "Search engine",
-				"engines_google": "Google (Default)",
+				"engines_default": "Default",
 				"engines_custom": "Custom",
 				"engines_custom_desc": "Enter a URL that queries should be sent to, with <b>%s</b> where the query should go.",
 
+				"omnibox_capture": "Handle searches normally made in the Omnibox",
 				"voice": "Enable voice search",
 				"ok_google": "Enable \"OK Google\" hotword detection",
 				"search_tab": "Open search results in a new tab"
@@ -351,6 +390,7 @@
 				"bg_downloads": "Downloadable backgrounds",
 				"weather": "Hourly weather forecasts up to 10 days out",
 				"toolbar": "More toolbar links",
+				"ads": "A completely ad-free experience",
 				"support": "Prioritized support and suggestions",
 
 				"buy_pro": "Buy Pro"
@@ -415,6 +455,30 @@
 
 				"cancel_notice": "Your subscription will be canceled immediately",
 				"cancel_notice2": "If you would like a refund, please contact us at support@ichro.me"
+			}
+		},
+
+		"ads": {
+			"text1": "iChrome displays a few small ads to pay for server, support and development costs. With these ads, we can afford to offer iChrome free to everyone.",
+			"text2": "Here you can choose where those ads are shown, or buy ad-free to permanently remove them.",
+			"text3": "Ad-free is a one-time purchase that permanently removes ads from iChrome wherever you're signed in. You can also upgrade to Pro for extra features in addition to an ad-free experience.",
+
+			"upgrade_btn": "Upgrade to ad-free",
+			"already_upgraded": "It looks like you've already upgraded to ad-free",
+
+			"signin": "Sign in",
+			"signin_desc": "Sign in before upgrading so we can link your purchase to your account",
+			"signin_btn": "Sign in",
+
+			"thank_you": "Thank you for upgrading to ad-free!",
+
+			"placement": {
+				"title": "Ad placement",
+
+				"left": "In the leftmost column",
+				"right": "In the rightmost column",
+				"top": "Above the tab",
+				"bottom": "Floating at the bottom"
 			}
 		}
 	},
@@ -549,7 +613,7 @@
 
 			"image": "Image URL",
 			"image_placeholder": "Enter a background image URL",
-			"image_help": "Uploaded images <b>cannot be synced</b> between computers.<br /><br />If this is important to you, please upload your image to a service such as <a href=\"http://imgur.com/\" target=\"_blank\">imgur</a>. Then copy and paste the URL ending with an extension (i.e. .jpg) and paste it into the field on the left.",
+			"image_help": "Uploaded images <b>cannot be synced</b> between computers.<br /><br />If this is important to you, please upload your image to a service such as <a href=\"http://imgur.com/\" target=\"_blank\">imgur</a>. Then copy the URL ending with an extension (i.e. .jpg) and paste it into the field on the left.",
 
 			"color": "Fallback Color",
 			"color_placeholder": "Enter any color name",

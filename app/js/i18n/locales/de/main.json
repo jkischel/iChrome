@@ -10,6 +10,12 @@
     "me":"Ich"
   },
   "remove_widget":"Löschen",
+  "hide_banner":"Hide this banner",
+  "hide_ad":{
+    "content":"Would you like to hide ads until you use iChrome next, or upgrade to remove them permanently?",
+    "upgrade":"Upgrade",
+    "hide":"Hide ads"
+  },
   "alert":{
     "default_button":"Verwerfen",
     "confirm_title":"Sind Sie sicher?",
@@ -24,7 +30,7 @@
       "wrong_extension_action":"Hier klicken",
       "about":"Bei iChrome geht es um Tabs und Widgets",
       "about_desc":"Tabs sind Seiten voller Widgets - Blöcke die einem Dinge zeigen wie z. B. das Wetter, Nachrichten und deine E-Mails. Viele kannst du an deinen Stil anpassen. Hinzufügen kannst du so viele wie du möchtest.",
-      "terms":"Hinweis: Indem Sie fortfahren erklären Sie sich mit iChrome's <a href=\"https:\/\/ichro.me\/tos\" target=\"_blank\">Nutzungsbedingungen<\/a> und <a href=\"https:\/\/ichro.me\/privacy\" target=\"_blank\">Datenschutzrichtlinien<\/a> einverstanden",
+      "terms":"Hinweis: Indem Sie fortfahren erklären Sie sich mit iChrome's <a href=\"https://ichro.me/tos\" target=\"_blank\">Nutzungsbedingungen</a> und <a href=\"https://ichro.me/privacy\" target=\"_blank\">Datenschutzrichtlinien</a> einverstanden",
       "sign_in":"Google Account zum einloggen nutzen",
       "sign_in_desc":"Bevor Sie anfangen, melden Sie sich mit Ihrem Google Account an, um Ihre Änderungen sicher online speichern zu können.",
       "sign_in_desc2":"Sie müssen sich nicht einloggen, aber Ihre Seite wird nicht online gespeichert und kann nicht von anderen Computern aufgerufen werden.",
@@ -36,15 +42,15 @@
     },
     "widgets":{
       "configure":"Konfigurieren wir ein Widget.",
-      "configure_desc":"Klicke auf den Schraubenschlüssel, um die <b>Einstellungen<\/b> des Wetterwidgets zu öffnen.",
+      "configure_desc":"Klicke auf den Schraubenschlüssel, um die <b>Einstellungen</b> des Wetterwidgets zu öffnen.",
       "configure_skip":"Überspringen",
-      "settings":"Ersetzen Sie <b>San Francisco, CA<\/b> mit Ihrem Standort und drücken Sie danach auf <b>Speichern<\/b>.",
-      "move":"Sie können Widgets <b>verschieben<\/b> indem Sie die drei senkrecht übereinander gelegenen Punkte als Griff nutzen.",
-      "remove":"Um ein Widget zu <b>entfernen<\/b>, ziehen Sie es auf die rote Leiste (nicht gezeigt).",
+      "settings":"Ersetzen Sie <b>San Francisco, CA</b> mit Ihrem Standort und drücken Sie danach auf <b>Speichern</b>.",
+      "move":"Sie können Widgets <b>verschieben</b> indem Sie die drei senkrecht übereinander gelegenen Punkte als Griff nutzen.",
+      "remove":"Um ein Widget zu <b>entfernen</b>, ziehen Sie es auf die rote Leiste (nicht gezeigt).",
       "done":"Verstanden"
     },
     "settings":{
-      "intro":"Lassen Sie uns nun einen Blick in das <b>Menü<\/b> werfen, um weitere Möglichkeiten zu entdecken.",
+      "intro":"Lassen Sie uns nun einen Blick in das <b>Menü</b> werfen, um weitere Möglichkeiten zu entdecken.",
       "instructions":"Klicken Sie auf das markierte Bild, um es zu öffnen.",
       "skip":"Überspringen",
       "tooltips":{
@@ -56,19 +62,19 @@
         "support":"Schicken Sie uns eine Nachricht oder schreiben Sie hier eine Rezension"
       },
       "finished":"Das war's!",
-      "finished_next":"Wählen Sie eine Option aus dem Menü (versuchen Sie es mit <b>Widgets<\/b>) und richten Sie Ihre Seite ein!",
+      "finished_next":"Wählen Sie eine Option aus dem Menü (versuchen Sie es mit <b>Widgets</b>) und richten Sie Ihre Seite ein!",
       "finished_contact":"Nutzen Sie den Support-Link und wir helfen Ihnen so schnell wie möglich."
     }
   },
   "storage":{
-    "signin":"Melden Sie sich nun bei Google an, um Ihre Konfiguration zu sichern \/ zu synchronisieren",
+    "signin":"Melden Sie sich nun bei Google an, um Ihre Konfiguration zu sichern / zu synchronisieren",
     "signin_btn":"Registrieren",
     "signin_dismiss":"Verwerfen",
     "signin_confirm":{
       "title":"Lokal gespeicherte Daten behalten?",
-      "desc":"Möchten Sie Ihre lokalen Einstellungen behalten, und mit diesen die Einstellungen in Ihrem Account ersetzen, oder wollen Sie mit den Einstellungen Ihres Accounts die lokalen Daten überschreiben?",
+      "desc":"Möchten Sie Ihre lokalen Einstellungen behalten und mit diesen die Einstellungen in Ihrem Account ersetzen, oder sollen die in Ihrem Benutzerkonto vorhandenen Einstellungen die lokalen Daten überschreiben?",
       "keep_account":"Benutzerkonto verwenden",
-      "keep_local":"Lokal speichern"
+      "keep_local":"Lokale Einstellungen behalten"
     },
     "signout_confirm":"Wenn Sie sich ausloggen, wird das lokales Backup gelöscht",
     "pastdue":"Ihr Abonnement ist überfällig",
@@ -77,6 +83,10 @@
   "toolbar":{
     "placeholder":"Begriff eingeben",
     "placeholder_ok":"Begriff eingeben oder \"OK, Google\"",
+    "suggestions":{
+      "url_subtext":"URL besuchen",
+      "capture_notice":"iChrome sucht generell mittels Omnibox. Dies kann jederzeit in den Einstellungen deaktiviert werden."
+    },
     "apps":{
       "search":"Suche",
       "youtube":"YouTube",
@@ -109,7 +119,7 @@
   "voice":{
     "listening":"Höre...",
     "searching":"Suche nach: %s",
-    "missed":"Nicht verstanden. <a>Versuche es erneut<\/a>"
+    "missed":"Nicht verstanden. <a>Versuche es erneut</a>"
   },
   "settings":{
     "title":"Einstellungen",
@@ -120,7 +130,8 @@
       "visual_sections":{
         "background":"Hintergrund",
         "layout":"Design",
-        "theme":"App-Design"
+        "theme":"App-Design",
+        "ad_placement":"Ad placement"
       },
       "toolbar":"Werkzeugleiste",
       "toolbar_sections":{
@@ -130,6 +141,7 @@
       },
       "tabs":"Reiter",
       "widgets":"Widgets",
+      "ads":"Ads",
       "pro":"Pro",
       "accounts":"Benutzerkonto",
       "misc":"Sonstiges",
@@ -188,9 +200,10 @@
         "title":"Suche",
         "desc":"Diese Einstellungen bestimmen die Funktion des Suchfeldes und der Sprachsuche",
         "engine":"Suchmaschine",
-        "engines_google":"Google (Standard)",
+        "engines_default":"Voreinstellung",
         "engines_custom":"Benutzerdefiniert",
-        "engines_custom_desc":"Bitte eine URL eingeben an die Abfragen gesendet werden sollen, <b>%s<\/b> enthält das Ziel.",
+        "engines_custom_desc":"Bitte eine URL eingeben an die Abfragen gesendet werden sollen, <b>%s</b> enthält das Ziel.",
+        "omnibox_capture":"Handhabung von Suchen welche generell in der Omnibox erfolgen",
         "voice":"Sprachsuche aktivieren",
         "ok_google":"Aktivieren Sie die \"OK-Google\" -Erkennung",
         "search_tab":"Öffnet Suchergebnisse in einem neuen Tab"
@@ -203,7 +216,7 @@
         "custom_note1":"Maximal 3 sind zulässig",
         "custom_note2":"Benutzer erhalten 8",
         "custom_name_placeholder":"Link-Text",
-        "custom_url_placeholder":"Link-URL, z.B. http:\/\/www.google.com\/"
+        "custom_url_placeholder":"Link-URL, z.B. http://www.google.com/"
       }
     },
     "misc":{
@@ -220,10 +233,10 @@
     "accounts":{
       "status":{
         "title":"Status",
-        "signed_in":"Sie sind derzeit als %s (%s) <b>angemeldet<\/b>.",
+        "signed_in":"Sie sind derzeit als %s (%s) <b>angemeldet</b>.",
         "reset_account":"Konto zurücksetzen",
         "sign_out":"Abmelden",
-        "signed_out":"Sie sind <b>derzeit nicht angemeldet<\/b>. Melden Sie sich jetzt mit Ihrem Google-Konto an, um Ihre Einstellungen sicher speichern und synchronisieren zu können.",
+        "signed_out":"Sie sind <b>derzeit nicht angemeldet</b>. Melden Sie sich jetzt mit Ihrem Google-Konto an, um Ihre Einstellungen sicher speichern und synchronisieren zu können.",
         "sign_in":"Mit Google anmelden"
       },
       "reset_confirm_desc":"Dies wird alle lokalen und synchronisierte Daten dauerhaft ohne eine Möglichkeit der Wiederherstellung dauerhaft löschen.",
@@ -244,12 +257,12 @@
       },
       "css":{
         "title":"Benutzerdefiniertes CSS",
-        "desc":"Sie können mit CSS (<a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/CSS\" target=\"blank\">definition<\/a>) beinahe alles in iChrome individualisieren.",
+        "desc":"Sie können mit CSS (<a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS\" target=\"blank\">definition</a>) beinahe alles in iChrome individualisieren.",
         "placeholder":"Geben Sie hier bis zu 1000 Zeichen in CSS ein"
       },
       "debug_tools":{
         "title":"Debug-Tools",
-        "desc":"<b>Warnung:<\/b> Diese Tools können ihre gesamte Konfiguration mit einem einzigen Klick löschen. Verwenden Sie sie nur, wenn Ihr Entwickler Sie damit beauftragt.",
+        "desc":"<b>Warnung:</b> Diese Tools können ihre gesamte Konfiguration mit einem einzigen Klick löschen. Verwenden Sie sie nur, wenn Ihr Entwickler Sie damit beauftragt.",
         "open":"Werkzeuge öffnen"
       }
     },
@@ -282,6 +295,7 @@
         "bg_downloads":"Herunterladbare Hintergründe",
         "weather":"Stündliche Wettervorhersagen bis zu 10 Tagen voraus",
         "toolbar":"Weitere Toolbar Links",
+        "ads":"A completely ad-free experience",
         "support":"Bevorzugter Support und Empfehlungen",
         "buy_pro":"Pro-Version kaufen"
       },
@@ -316,7 +330,7 @@
           "education":"Bildung",
           "custom":"Benutzerdefiniert"
         },
-        "uneditable_desc":"Wirtschaft, Bildung und benutzerdefinierte Pläne können nicht innerhalb iChrome aktualisiert werden. Bitte <a href=\"mailto:support@ichro.me\"> kontaktieren Sie uns<\/a>, für Anpassungen oder um Ihr Abonnement kündigen.",
+        "uneditable_desc":"Wirtschaft, Bildung und benutzerdefinierte Pläne können nicht innerhalb iChrome aktualisiert werden. Bitte <a href=\"mailto:support@ichro.me\"> kontaktieren Sie uns</a>, für Anpassungen oder um Ihr Abonnement kündigen.",
         "status":"Status",
         "status_active":"aktiv",
         "status_trial":"Trial",
@@ -330,6 +344,24 @@
         "cancel":"Abonnement kündigen",
         "cancel_notice":"Ihr Abonnement wird sofort abgebrochen",
         "cancel_notice2":"Wenn du eine Rückerstattung willst, kontaktiere bitte support@ichro.me"
+      }
+    },
+    "ads":{
+      "text1":"iChrome displays a few small ads to pay for server, support and development costs. With these ads, we can afford to offer iChrome free to everyone.",
+      "text2":"Here you can choose where those ads are shown, or buy ad-free to permanently remove them.",
+      "text3":"Ad-free is a one-time purchase that permanently removes ads from iChrome wherever you're signed in. You can also upgrade to Pro for extra features in addition to an ad-free experience.",
+      "upgrade_btn":"Upgrade to ad-free",
+      "already_upgraded":"It looks like you've already upgraded to ad-free",
+      "signin":"Einloggen",
+      "signin_desc":"Sign in before upgrading so we can link your purchase to your account",
+      "signin_btn":"Einloggen",
+      "thank_you":"Thank you for upgrading to ad-free!",
+      "placement":{
+        "title":"Ad placement",
+        "left":"In the leftmost column",
+        "right":"In the rightmost column",
+        "top":"Above the tab",
+        "bottom":"Floating at the bottom"
       }
     }
   },
@@ -385,7 +417,7 @@
           "hide":"Ausblenden"
         },
         "account":"Account-ID",
-        "account_help":"Wenn Du bei mehreren Konten angemeldet bist ist dies der \"Authuser =\" Wert.\n<br \/> <br \/>\nZum Beispiel, wenn Du in zwei Konten angemeldet bist, jsmith1@gmail.com und jsmith2@gmail.com, ist der \"Authuser\"-Wert für jsmith2@gmail.com 1, da es das zweite angemeldete Konto ist (gezählt ab 0).",
+        "account_help":"Wenn Du bei mehreren Konten angemeldet bist ist dies der \"Authuser =\" Wert.\n<br /> <br />\nZum Beispiel, wenn Du in zwei Konten angemeldet bist, jsmith1@gmail.com und jsmith2@gmail.com, ist der \"Authuser\"-Wert für jsmith2@gmail.com 1, da es das zweite angemeldete Konto ist (gezählt ab 0).",
         "account_placeholder":"Ihr \"authuser=\" Wert",
         "on":"An",
         "off":"Aus"
@@ -436,7 +468,7 @@
       "name_placeholder":"Theme Namen eingeben",
       "image":"Bild-URL",
       "image_placeholder":"Gebe eine Hintergrundbild-URL ein",
-      "image_help":"Hochgeladen Bilder <b>können zwischen Computern nicht synchronisiert werden<\/b>. <br \/> <br \/> Falls dies wichtig ist, das Bild bitte mit einem Dienst wie <a href=\"http:\/\/imgur.com\/\" target=\"_blank\">Imgur<\/a> hochladen. Dann kopiere die URL, welche mit einer Erweiterung endet (d.h. .jpg), und füge diese in das Feld auf der linken Seite ein.",
+      "image_help":"Hochgeladen Bilder <b>können zwischen Computern nicht synchronisiert werden</b>. <br /> <br /> Falls dies wichtig ist, das Bild bitte mit einem Dienst wie <a href=\"http://imgur.com/\" target=\"_blank\">Imgur</a> hochladen. Dann kopiere die URL, welche mit einer Erweiterung endet (d.h. .jpg), und füge diese in das Feld auf der linken Seite ein.",
       "color":"Reserve-Farbe",
       "color_placeholder":"Gebe eine Farbbezeichnung ein",
       "position":"Position",

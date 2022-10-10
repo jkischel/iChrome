@@ -6,16 +6,19 @@
  * posts authorization (usually a Google login token) and the server responds with
  * access and refresh tokens.
  */
-define(["lodash", "jquery", "backbone", "browser/api", "i18n/i18n", "modals/alert", "storage/filesystem"], function(_, $, Backbone, Browser, Translate, Alert, FileSystem) {
+define(["lodash", "jquery", "backbone", "browser/api", "fbanalytics", "i18n/i18n", "modals/alert", "storage/filesystem"], function(_, $, Backbone, Browser, FB, Translate, Alert, FileSystem) {
 	var API_HOST = "https://api.ichro.me";
 
 	var Auth = Backbone.Model.extend({
 		isPro: false,
+		adFree: false,
 		isSignedIn: false,
 
 		initialize: function() {
 			this.on("change:isPro", function() {
 				this.isPro = this.get("isPro");
+			}, this).on("change:adFree", function() {
+				this.adFree = this.get("adFree");
 			}, this).on("change:user", function() {
 				this.isSignedIn = !!this.get("user");
 			}, this);
@@ -74,7 +77,13 @@ define(["lodash", "jquery", "backbone", "browser/api", "i18n/i18n", "modals/aler
 				this.clear();
 
 				FileSystem.clear(function() {
+					var version = Browser.storage.version;
+
 					Browser.storage.clear();
+
+					if (version) {
+						Browser.storage.version = version;
+					}
 
 					window.onbeforeunload = null;
 
@@ -116,6 +125,8 @@ define(["lodash", "jquery", "backbone", "browser/api", "i18n/i18n", "modals/aler
 						if (!d || d.error || !d.token) {
 							return cb(d.error || true);
 						}
+
+						FB.logEvent("COMPLETED_REGISTRATION");
 
 						this.set({
 							token: d.token,
@@ -170,9 +181,12 @@ define(["lodash", "jquery", "backbone", "browser/api", "i18n/i18n", "modals/aler
 
 			this.isPro = payload.plan && payload.plan !== "free";
 
+			this.adFree = this.isPro || !!payload.adFree;
+
 			this.set({
 				isPro: this.isPro,
 				user: payload.sub,
+				adFree: this.adFree,
 				expiry: payload.exp * 1000,
 				plan: payload.plan || "free",
 				subscription: payload.subscription
@@ -186,6 +200,11 @@ define(["lodash", "jquery", "backbone", "browser/api", "i18n/i18n", "modals/aler
 
 
 		refreshToken: function() {
+			// If we're already refreshing, return
+			if (this._refreshPromise) {
+				return;
+			}
+
 			this._refreshPromise = $.post(API_HOST + "/oauth/v1/token/refresh", "refresh_token=" + encodeURIComponent(this.get("refreshToken")), function(d) {
 				if (typeof d !== "object") {
 					d = JSON.parse(d);
@@ -235,8 +254,6 @@ define(["lodash", "jquery", "backbone", "browser/api", "i18n/i18n", "modals/aler
 		 */
 		ajax: function(config) {
 			if (config.url && config.url[0] === "/") {
-				config.url = API_HOST + config.url;
-
 				if (this.has("expiry") && new Date().getTime() > this.get("expiry")) {
 					this.refreshToken();
 				}
@@ -245,6 +262,8 @@ define(["lodash", "jquery", "backbone", "browser/api", "i18n/i18n", "modals/aler
 				if (this._refreshPromise) {
 					return this._refreshPromise.then(this.ajax.bind(this, config));
 				}
+
+				config.url = API_HOST + config.url;
 
 				if (this.has("token")) {
 					config.headers = config.headers || {};

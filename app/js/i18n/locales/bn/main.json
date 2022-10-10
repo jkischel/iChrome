@@ -3,13 +3,19 @@
   "language":"বাংলা",
   "extName":"iChrome - একটি দ্রুত, উত্পাদনশীল মূল পাতা",
   "newtabName":"iChrome নতুন ট্যাব - দ্রুত, সহজ নতুন ট্যাব",
-  "extDescription":"A lightning fast home\/start page dashboard with stunning backgrounds, news, weather, sports, RSS, todo, and more!",
+  "extDescription":"A lightning fast home/start page dashboard with stunning backgrounds, news, weather, sports, RSS, todo, and more!",
   "newtabDescription":"A lightning fast new tab page dashboard with stunning backgrounds, news, weather, sports, RSS, todo, and more!",
   "defaults":{
     "tab":"মূল পাতা",
     "me":"আমি"
   },
   "remove_widget":"বাতিল",
+  "hide_banner":"Hide this banner",
+  "hide_ad":{
+    "content":"Would you like to hide ads until you use iChrome next, or upgrade to remove them permanently?",
+    "upgrade":"Upgrade",
+    "hide":"বিজ্ঞাপন লুকান"
+  },
   "alert":{
     "default_button":"বাদ দিন",
     "confirm_title":"আপনি কি নিশ্চিত যে আপনি এটি করতে চান?",
@@ -24,27 +30,27 @@
       "wrong_extension_action":"এখানে ক্লিক করুন",
       "about":"iChrome's all about tabs and widgets",
       "about_desc":"Tabs are pages filled with widgets - blocks that show things like the weather, news, and your email. You can customize most widgets and add as many as you want.",
-      "terms":"Note: By proceeding, you agree to iChrome's <a href=\"https:\/\/ichro.me\/tos\" target=\"_blank\">Terms<\/a> and <a href=\"https:\/\/ichro.me\/privacy\" target=\"_blank\">Privacy Policy<\/a>",
+      "terms":"Note: By proceeding, you agree to iChrome's <a href=\"https://ichro.me/tos\" target=\"_blank\">Terms</a> and <a href=\"https://ichro.me/privacy\" target=\"_blank\">Privacy Policy</a>",
       "sign_in":"Sign in with your Google account",
       "sign_in_desc":"Sign in with your Google account before getting started to securely save your changes online.",
       "sign_in_desc2":"You can stay signed out if you want, but your page won't be saved online and you won't be able to access it from other computers.",
       "sign_in_button":"গুগল দিয়ে সাইন ইন করুন",
       "have_account":"দেখে মনে হচ্ছে আপনার ইতিমধ্যে একটি অ্যাকাউন্ট আছে!",
       "have_account_desc":"All your tabs and widgets are ready to use!",
-      "get_started":"Let's get started!",
+      "get_started":"চলুন শুরু করা যাক!",
       "get_started_desc":"You're good to go! Let's get your page set up."
     },
     "widgets":{
       "configure":"Let's configure a widget.",
-      "configure_desc":"Click the wrench to open the weather widget's <b>settings<\/b>.",
+      "configure_desc":"Click the wrench to open the weather widget's <b>settings</b>.",
       "configure_skip":"এড়ান",
-      "settings":"<b>San Francisco, CA<\/b> কে আপনার অবস্থান দিয়ে পরিবর্তন করুন, এরপর <b>সংরক্ষণ<\/b> টিপুন।",
-      "move":"You can <b>drag<\/b> widgets using the highlighted handle to move them.",
-      "remove":"When dragging a widget, drop it on the red bar (not shown) to <b>remove<\/b> it.",
+      "settings":"<b>San Francisco, CA</b> কে আপনার অবস্থান দিয়ে পরিবর্তন করুন, এরপর <b>সংরক্ষণ</b> টিপুন।",
+      "move":"You can <b>drag</b> widgets using the highlighted handle to move them.",
+      "remove":"When dragging a widget, drop it on the red bar (not shown) to <b>remove</b> it.",
       "done":"বুঝেছি"
     },
     "settings":{
-      "intro":"Now let's take a look at <b>the menu<\/b> and see what else you can do.",
+      "intro":"Now let's take a look at <b>the menu</b> and see what else you can do.",
       "instructions":"Click the highlighted image to open it.",
       "skip":"এড়ান",
       "tooltips":{
@@ -56,7 +62,7 @@
         "support":"এখানে আমাদের বার্তা দিন বা পর্যালোচনা লিখুন"
       },
       "finished":"এটাই!",
-      "finished_next":"Choose an option from the menu (try starting with <b>Widgets<\/b>) and set your page up!",
+      "finished_next":"Choose an option from the menu (try starting with <b>Widgets</b>) and set your page up!",
       "finished_contact":"Use the support link if you need any help and we'll get back to you ASAP."
     }
   },
@@ -77,6 +83,10 @@
   "toolbar":{
     "placeholder":"আপনার অনুসন্ধানের শব্দ লিখুন",
     "placeholder_ok":"আপনার শব্দ লিখুন বা \"OK, Google\" বলুন",
+    "suggestions":{
+      "url_subtext":"Visit URL",
+      "capture_notice":"iChrome handles searches you normally make from the Omnibox. You can disable this at any time from the settings"
+    },
     "apps":{
       "search":"অনুসন্ধান",
       "youtube":"ইউটিউব",
@@ -101,35 +111,37 @@
       "support":"সমর্থন",
       "feedback":"প্রতিক্রিয়া",
       "review":"পর্যালোচনা",
-      "terms":"Terms",
-      "privacy":"Privacy",
+      "terms":"শর্তাবলী",
+      "privacy":"গোপনীয়তা",
       "by":"Avi Kohn কর্তৃক"
     }
   },
   "voice":{
     "listening":"শুনছেন...",
     "searching":"অনুসন্ধান করছেন: %s",
-    "missed":"এটা বুঝা যায়নি। <a>আবার চেষ্টা করুন<\/a>"
+    "missed":"এটা বুঝা যায়নি। <a>আবার চেষ্টা করুন</a>"
   },
   "settings":{
     "title":"সেটিংস",
-    "exit":"Exit settings",
-    "saved":"Settings saved",
+    "exit":"প্রস্থান সেটিংস",
+    "saved":"সেটিংস সংরক্ষণ করা হয়েছে",
     "nav":{
-      "visual":"Visual",
+      "visual":"চাক্ষুষ",
       "visual_sections":{
-        "background":"Background",
+        "background":"পটভূমি",
         "layout":"লেআউট",
-        "theme":"App theme"
+        "theme":"অ্যাপ থিম",
+        "ad_placement":"Ad placement"
       },
-      "toolbar":"Toolbar",
+      "toolbar":"সরঞ্জামদণ্ড",
       "toolbar_sections":{
-        "style":"Style",
+        "style":"শৈলী",
         "search":"অনুসন্ধান",
-        "links":"Links"
+        "links":"সংযোগ"
       },
       "tabs":"ট্যাব",
       "widgets":"উইজেট",
+      "ads":"বিজ্ঞাপন",
       "pro":"Pro",
       "accounts":"Account",
       "misc":"Miscellaneous",
@@ -168,7 +180,7 @@
         }
       },
       "theme":{
-        "title":"App theme",
+        "title":"অ্যাপ থিম",
         "desc":"The app theme controls the style of iChrome itself and all widgets",
         "preview":"প্রাকদর্শন",
         "light":"Light (default)",
@@ -179,7 +191,7 @@
     },
     "toolbar":{
       "style":{
-        "title":"Style",
+        "title":"শৈলী",
         "desc":"This controls the style of the toolbar.  It can either appear normally or as an out of the way button",
         "normal":"স্বাভাবিক",
         "button":"বোতাম"
@@ -188,22 +200,23 @@
         "title":"অনুসন্ধান",
         "desc":"These settings control how the search box and voice search function",
         "engine":"অনুসন্ধান ইঞ্জিন",
-        "engines_google":"গুগল (পূর্বনির্ধারিত)",
+        "engines_default":"পূর্ব-নির্ধারিত",
         "engines_custom":"স্বনির্ধারিত",
-        "engines_custom_desc":"Enter a URL that queries should be sent to, with <b>%s<\/b> where the query should go.",
+        "engines_custom_desc":"Enter a URL that queries should be sent to, with <b>%s</b> where the query should go.",
+        "omnibox_capture":"Handle searches normally made in the Omnibox",
         "voice":"কন্ঠস্বর অনুসন্ধান সক্ষম করুন",
         "ok_google":"Enable \"OK Google\" hotword detection",
         "search_tab":"Open search results in a new tab"
       },
       "links":{
-        "title":"Links",
+        "title":"সংযোগ",
         "desc":"These are the items shown at the right of the toolbar",
         "apps":"অ্যাপ মেনু",
         "custom":"Custom links",
         "custom_note1":"সর্বোচ্চ ৩টি মঞ্জুরিপ্রাপ্ত",
         "custom_note2":"users get 8",
         "custom_name_placeholder":"Link text",
-        "custom_url_placeholder":"Link URL, i.e. https:\/\/www.google.com\/"
+        "custom_url_placeholder":"Link URL, i.e. https://www.google.com/"
       }
     },
     "misc":{
@@ -220,10 +233,10 @@
     "accounts":{
       "status":{
         "title":"অবস্থা",
-        "signed_in":"You are currently <b>signed in<\/b> as %s (%s).",
+        "signed_in":"You are currently <b>signed in</b> as %s (%s).",
         "reset_account":"Reset account",
         "sign_out":"সাইন আউট",
-        "signed_out":"You are <b>not currently signed in<\/b>. Sign in with your Google account now to securely store and sync your configuration.",
+        "signed_out":"You are <b>not currently signed in</b>. Sign in with your Google account now to securely store and sync your configuration.",
         "sign_in":"Sign in with Google"
       },
       "reset_confirm_desc":"This will erase all local and synced data, there is no backup and no way to undo this.",
@@ -236,20 +249,20 @@
         "desc2":"Use the buttons below to roll iChrome back to a particular date or download one of your backups.",
         "backup":"Backup now",
         "upload":"Restore from file",
-        "download":"Download",
-        "restore":"Restore",
-        "download_name":"iChrome Backup",
+        "download":"ডাউনলোড",
+        "restore":"পুনঃস্থাপন",
+        "download_name":"iChrome ব্যাকআপ",
         "restore_confirm":"This will overwrite all local and synced data. You will lose your entire current configuration on all computers under this account.",
         "restore_error":"An error occurred while trying to parse the provided data, please try again later."
       },
       "css":{
-        "title":"Custom CSS",
-        "desc":"You can use CSS (<a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/CSS\" target=\"blank\">definition<\/a>) to customize almost any part of iChrome.",
+        "title":"স্বনির্ধারিত CSS",
+        "desc":"You can use CSS (<a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS\" target=\"blank\">definition</a>) to customize almost any part of iChrome.",
         "placeholder":"Enter up to 1000 characters of CSS here"
       },
       "debug_tools":{
         "title":"Debug tools",
-        "desc":"<b>WARNING:<\/b> These tools can erase your entire configuration in a single click. Only use them if your developer instructs you to.",
+        "desc":"<b>WARNING:</b> These tools can erase your entire configuration in a single click. Only use them if your developer instructs you to.",
         "open":"Open tools"
       }
     },
@@ -282,6 +295,7 @@
         "bg_downloads":"Downloadable backgrounds",
         "weather":"Hourly weather forecasts up to 10 days out",
         "toolbar":"More toolbar links",
+        "ads":"A completely ad-free experience",
         "support":"Prioritized support and suggestions",
         "buy_pro":"Pro কিনুন"
       },
@@ -289,8 +303,8 @@
         "title":"Checkout",
         "updating_title":"হালনাগাদ পরিকল্পনা",
         "payment_options":"Pay",
-        "pay_monthly":"Monthly ($2)",
-        "pay_yearly":"Yearly ($20)",
+        "pay_monthly":"মাসিক (2$)",
+        "pay_yearly":"বাত্সরিক ($20)",
         "cancel":"বাতিল",
         "update":"হালনাগাদ",
         "subscribe":"সদস্যতা",
@@ -307,7 +321,7 @@
         "signin_btn":"Sign in"
       },
       "plan":{
-        "title":"Plan",
+        "title":"পরিকল্পনা",
         "desc":"You are currently subscribed to iChrome Pro (%s)",
         "types":{
           "monthly":"মাসিক",
@@ -316,7 +330,7 @@
           "education":"শিক্ষা",
           "custom":"স্বনির্ধারিত"
         },
-        "uneditable_desc":"Business, education, and custom plans cannot be updated from within iChrome. Please <a href=\"mailto:support@ichro.me\">contact us<\/a> to update or cancel your subscription.",
+        "uneditable_desc":"Business, education, and custom plans cannot be updated from within iChrome. Please <a href=\"mailto:support@ichro.me\">contact us</a> to update or cancel your subscription.",
         "status":"অবস্থা",
         "status_active":"সক্রিয়",
         "status_trial":"Trial",
@@ -330,6 +344,24 @@
         "cancel":"Cancel subscription",
         "cancel_notice":"Your subscription will be canceled immediately",
         "cancel_notice2":"If you would like a refund, please contact us at support@ichro.me"
+      }
+    },
+    "ads":{
+      "text1":"iChrome displays a few small ads to pay for server, support and development costs. With these ads, we can afford to offer iChrome free to everyone.",
+      "text2":"Here you can choose where those ads are shown, or buy ad-free to permanently remove them.",
+      "text3":"Ad-free is a one-time purchase that permanently removes ads from iChrome wherever you're signed in. You can also upgrade to Pro for extra features in addition to an ad-free experience.",
+      "upgrade_btn":"Upgrade to ad-free",
+      "already_upgraded":"It looks like you've already upgraded to ad-free",
+      "signin":"Sign in",
+      "signin_desc":"Sign in before upgrading so we can link your purchase to your account",
+      "signin_btn":"Sign in",
+      "thank_you":"Thank you for upgrading to ad-free!",
+      "placement":{
+        "title":"Ad placement",
+        "left":"In the leftmost column",
+        "right":"In the rightmost column",
+        "top":"Above the tab",
+        "bottom":"Floating at the bottom"
       }
     }
   },
@@ -385,7 +417,7 @@
           "hide":"লুকান"
         },
         "account":"Account ID",
-        "account_help":"If you're signed into multiple accounts, this is the \"authuser=\" value.\n<br \/><br \/>\nFor example, if you're signed into two accounts, jsmith1@gmail.com and jsmith2@gmail.com, the \"authuser\" value for jsmith2@gmail.com would be 1 since it's the second account (counting from zero) that you're signed into.",
+        "account_help":"If you're signed into multiple accounts, this is the \"authuser=\" value.\n<br /><br />\nFor example, if you're signed into two accounts, jsmith1@gmail.com and jsmith2@gmail.com, the \"authuser\" value for jsmith2@gmail.com would be 1 since it's the second account (counting from zero) that you're signed into.",
         "account_placeholder":"আপনার \"authuser=\" মান",
         "on":"চালু",
         "off":"বন্ধ"
@@ -436,7 +468,7 @@
       "name_placeholder":"থিম নাম প্রবেশ করাএ",
       "image":"চিত্রের URL",
       "image_placeholder":"পটভূমি চিত্রের URL লিখুন",
-      "image_help":"Uploaded images <b>cannot be synced<\/b> between computers.<br \/><br \/>If this is important to you, please upload your image to a service such as <a href=\"http:\/\/imgur.com\/\" target=\"_blank\">imgur<\/a>. Then copy and paste the URL ending with an extension (i.e. .jpg) and paste it into the field on the left.",
+      "image_help":"Uploaded images <b>cannot be synced</b> between computers.<br /><br />If this is important to you, please upload your image to a service such as <a href=\"http://imgur.com/\" target=\"_blank\">imgur</a>. Then copy the URL ending with an extension (i.e. .jpg) and paste it into the field on the left.",
       "color":"Fallback Color",
       "color_placeholder":"যে কোন রঙের নাম লিখুন",
       "position":"অবস্থান",

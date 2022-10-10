@@ -217,9 +217,46 @@ iframe[seamless] {
 
 
 
+/*---------------------------------------------
+	/ Add widget
+*/
+.add-widget-link {
+	z-index: 1;
+	color: #C0C0c0;
+	right: 7px;
+	top: 70px;
+	position: fixed;
+	cursor: pointer;
+
+	.icon {
+		text-shadow: 0 0 3px rgba(0, 0, 0, .5);
+		font-size: 52px;
+	}
+	
+}
 
 
 
+
+/*---------------------------------------------
+	/ Feedback link
+*/
+.feedback-link {
+	z-index: 2;
+	color: #FFF;
+	right: 10px;
+	bottom: 10px;
+	position: fixed;
+	cursor: pointer;
+}
+
+.feedback-link > a, .feedback-link > a:hover {
+	color: #FFF;
+}
+
+.feedback-link .icon {
+	text-shadow: 0 0 3px rgba(0, 0, 0, .5);
+}
 
 
 /*---------------------------------------------
@@ -228,7 +265,7 @@ iframe[seamless] {
 .bg-info {
 	z-index: 2;
 	color: #FFF;
-	right: 10px;
+	right: 40px;
 	bottom: 10px;
 	position: fixed;
 	cursor: pointer;
@@ -1352,8 +1389,8 @@ header.toolbar {
 	width: 100%;
 	height: 50px;
 	font-size: 0;
+	display: flex;
 	background: #FFF;
-	text-align: right;
 	position: relative;
 
 	.dark & {
@@ -1368,26 +1405,28 @@ header.toolbar {
 		background: rgba(0, 0, 0, .6);
 	}
 
+	&.floating, .dark &.floating, .transparent.dark &.floating, .transparent.darker &.floating  {
+		background: transparent;
+	}
+
 	> div {
-		text-align: left;
 		vertical-align: top;
 		display: inline-block;
 	}
 
 	.logo,
 	.search {
-		border-right: 1px solid rgba(0, 0, 0, .075);
+		border-right: 1px solid rgba(0, 0, 0, .15);
 	}
 
 	.dark & .logo,
 	.dark & .search {
-		border-right-color: rgba(255, 255, 255, .1);
+		border-right-color: rgba(255, 255, 255, .15);
 	}
 
 	.logo {
-		float: left;
-		width: 140px;
 		height: 100%;
+		flex: 0 0 140px;
 		background: url(/images/logo.svg) center/100px no-repeat;
 	}
 
@@ -1397,6 +1436,8 @@ header.toolbar {
 
 	.links {
 		height: 100%;
+		flex: 1 0 auto;
+		text-align: right;
 		padding: 18px 10px;
 	}
 
@@ -1422,9 +1463,9 @@ header.toolbar {
 	}
 
 	.menu-toggle {
-		padding: 7px;
+		flex: 0 0 56px;
 		cursor: pointer;
-		padding-right: 10px;
+		padding: 7px 10px;
 	}
 
 	.menu-toggle .img {
@@ -1444,13 +1485,19 @@ header.toolbar {
 					inset 0 2px 0 rgba(0, 0, 0, 0.15);
 	}
 
+
+
+
+
+
+
 	/*---------------------------------------------
 		/ Toolbar / Apps Menu
 	*/
 	.apps-toggle {
+		flex: 0 0 45px;
 		cursor: pointer;
-		padding: 14px 10px;
-		padding-right: 15px;
+		padding: 14px 12px;
 	}
 
 	.apps-toggle svg {
@@ -1571,14 +1618,26 @@ header.toolbar {
 		/ Toolbar / Search
 	*/
 	.search {
-		float: left;
-		width: 700px;
 		height: 100%;
+		flex: 0 1 700px;
 		position: relative;
 	}
 
-	.dark & .search {
-		border-right-color: rgba(255, 255, 255, .1);
+	.search .icon {
+		top: 0;
+		left: 0;
+		z-index: 9;
+		width: 22px;
+		height: 22px;
+		margin: 15px;
+		cursor: pointer;
+		position: absolute;
+		pointer-events: none;
+		fill: rgba(0, 0, 0, 0.25);
+
+		.dark & {
+			fill: rgba(255, 255, 255, 0.25);
+		}
 	}
 
 	.search input {
@@ -1594,7 +1653,7 @@ header.toolbar {
 		border: 0!important;
 		background: inherit;
 		font-family: Open sans, sans-serif;
-		padding: 15px 55px 15px 30px!important;
+		padding: 15px 55px 15px 48px!important;
 	}
 
 	.search input:focus {
@@ -1660,6 +1719,15 @@ header.toolbar {
 		text-overflow: ellipsis;
 		font-family: Roboto, sans-serif;
 		border-left: 4px solid transparent;
+
+		.subtext {
+			color: #888;
+			font-size: 13px;
+
+			&:before {
+				content: " - ";
+			}
+		}
 	}
 
 	.search .suggestions div:hover,
@@ -1675,6 +1743,22 @@ header.toolbar {
 
 	.search .suggestions div.active {
 		border-left-color: #738FFE;
+
+		&.url {
+			border-left-color: #4CAF50;
+		}
+	}
+
+	.search .suggestions .capture-notice {
+		border: none;
+		color: #757575;
+		cursor: default;
+		font-size: 12px;
+		line-height: 20px;
+		padding: 10px 16px;
+		background: #F5F5F5;
+		white-space: initial;
+		border-top: 1px solid rgba(0, 0, 0, .1);
 	}
 
 	.search .speech {
@@ -1702,19 +1786,59 @@ header.toolbar {
 		opacity: .8;
 	}
 
+	&.floating .search {
+		//background: #FBFBFB;
+		width: 100%;
+		margin-right: 68px;
+		margin-left: 8px;
+		flex-basis: unset;
+		margin-top: 8px;
+	}
 
+	&.floating .search input {
+		background-color: white;
 
+		.dark & {
+			background: #303030;
+		}
 
+		.dark.transparent & {
+			background: rgba(48, 48, 48, .6);
+		}
 
+		.darker.transparent & {
+			background: rgba(48, 48, 48, .8);
+		}
+	}
+
+	&.floating .search input:focus {
+		background-color: white;
+
+		.dark & {
+			background: #303030;
+		}
+
+		.dark.transparent & {
+			background: rgba(48, 48, 48, 0.5);
+		}
+
+		.darker.transparent & {
+			background: rgba(48, 48, 48, .7);
+		}
+	}
+
+	&.floating.nosearch .search {
+		display: none;
+	}
 
 
 	/*---------------------------------------------
 		/ Toolbar / Announcements
 	*/
 	.announcements {
+		flex: 0 0 45px;
 		cursor: pointer;
-		padding: 14px 10px;
-		padding-right: 15px;
+		padding: 14px 12px;
 	}
 
 	.announcements:after {
@@ -1742,12 +1866,6 @@ header.toolbar {
 
 		These let it be responsive down to 320px with very little work, why not?
 	*/
-	@media (max-width: 1150px) {
-		.search {
-			width: 50%;
-		}
-	}
-
 	@media (max-width: 800px) {
 		// These are duplicated in the menu so they can be hidden
 		.links {
@@ -1758,10 +1876,6 @@ header.toolbar {
 	@media (max-width: 500px) {
 		.logo {
 			display: none;
-		}
-
-		.search {
-			width: calc(100% - 105px);
 		}
 	}
 }
@@ -2210,6 +2324,8 @@ dialog.announcements li {
 
 
 
+
+
 /*---------------------------------------------
 	/ Tabs Layout
 */
@@ -2385,6 +2501,10 @@ body.dragging .tab-container .tab > .remove {
 	justify-content: center;
 }
 
+body.floating-toolbar .widgets-container {
+	margin-top: 16px;
+}
+
 .widgets-container .column {
 	flex: 1;
 	min-width: 0; // crbug.com/546034 fix - flex issues in Chrome 48+
@@ -2440,7 +2560,7 @@ body > .widgets-container {
 	}
 }
 
-.grid .widgets-container > .widget:hover {
+.grid .widgets-container > .widget:not(.maximized):hover {
 	z-index: 2;
 }
 
@@ -2469,6 +2589,7 @@ body > .widgets-container {
 }
 
 .grid .widgets-container .placeholder {
+	margin: 0;
 	visibility: hidden;
 }
 
@@ -2479,6 +2600,68 @@ body.resizing .grid {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.3) 1px, rgba(0, 0, 0, 0) 1px),
 		linear-gradient(90deg, rgba(0, 0, 0, 0.3) 1px, rgba(0, 0, 0, 0) 1px)!important;
 }
+
+
+
+
+
+
+
+/*---------------------------------------------
+	/ Widgets Layout / Ads
+*/
+.ad-unit button.hide-ad {
+	top: -8px;
+	border: 0;
+	padding: 0;
+	right: -8px;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	border-radius: 50%;
+	background: center/100% none;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAP1BMVEUAAAAbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsaGhoWFhYNDQ3///+CgoJ8fHx2dnaYmJhas4+jAAAADXRSTlMAitpVNhYT7ein7Kal+GfFbwAAAINJREFUGNNtkVsOhSAMRKlYEL0jIO5/rReoijGdDxIOU/oyIrYUAlk2Q44WdC3kbjZPeDTNF/N4yXfqxDe87QdC1b6Pk2retd3OHIGYz0ZXNrZbcjpiPFLuVivRqKCU+gCJDxBaUirC8FOhGq4nYv8tybNavN6mPhB9dPqQZR3b9qzjD4nKD0ltCmdAAAAAAElFTkSuQmCC);
+}
+
+.tab-container .tab > .ad-unit {
+	left: 50%;
+	z-index: 99;
+	width: 728px;
+	height: 90px;
+	margin-left: -364px;
+
+	&.top {
+		top: 20px;
+		position: absolute;
+
+		& ~ .widgets-container {
+			margin-top: 125px;
+		}
+	}
+
+	&.bottom {
+		bottom: 20px;
+		position: fixed;
+
+		& ~ .widgets-container {
+			margin-bottom: 145px;
+		}
+	}
+}
+
+.widgets-container .ad-unit {
+	flex: 2 100%;
+	margin: 15px 2%;
+	text-align: center;
+	position: relative;
+
+	button.hide-ad {
+		right: initial;
+		left: calc(50% + 142px);
+	}
+}
+
+
 
 
 
@@ -2501,6 +2684,11 @@ body.resizing .grid {
 	font-family: Roboto, sans-serif;
 	animation: widget-box-shadow 0s 2s forwards;
 	-webkit-animation: widget-box-shadow 0s 2s forwards;
+}
+
+.widgets-container .widget > .content,
+.store-detail .preview .widget > .content {
+	height: 100%;
 }
 
 .widgets-container .widget.legacy,
@@ -2603,8 +2791,10 @@ body.resizing .grid {
 .widgets-container .widget .settings,
 .widgets-container .widget .minimize,
 .widgets-container .widget .maximize,
+.widgets-container .widget .delete,
 .store-detail .preview .widget .handle,
 .store-detail .preview .widget .settings,
+.store-detail .preview .widget .delete,
 .store-detail .preview .widget .minimize,
 .store-detail .preview .widget .maximize {
 	opacity: 0;
@@ -2664,6 +2854,7 @@ body.resizing .grid {
 		.handle,
 		.settings,
 		.minimize,
+		.delete,
 		.maximize {
 			opacity: 1;
 		}
@@ -2672,8 +2863,10 @@ body.resizing .grid {
 
 .widgets-container .widget .handle:before,
 .widgets-container .widget .settings:before,
+.widgets-container .widget .delete:before,
 .store-detail .preview .widget .handle:before,
-.store-detail .preview .widget .settings:before {
+.store-detail .preview .widget .settings:before 
+.store-detail .preview .widget .delete:before {
 	top: -15px;
 	left: -15px;
 	right: -10px;
@@ -2693,33 +2886,54 @@ body.resizing .grid {
 	text-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
 }
 
+.widgets-container .widget .delete,
+.store-detail .preview .widget .delete {
+	top: 50px;
+	right: 0;
+	color: red;
+	cursor: pointer;
+	text-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+
 .dark .widgets-container .widget .settings,
-.dark .store-detail .preview .widget .settings {
+.dark .store-detail .preview .widget .settings 
+.dark .widgets-container .widget .delete,
+.dark .store-detail .preview .widget .delete {
 	color: #DDD;
 	text-shadow: none;
 }
 
-.widgets-container .widget.maximized .settings {
+.widgets-container .widget.maximized .settings 
+.widgets-container .widget.maximized .delete {
 	top: 5px;
 }
 
 .widgets-container .widget .settings:before,
-.store-detail .preview .widget .settings:before {
+.store-detail .preview .widget .settings:before 
+.widgets-container .widget .delete:before,
+.store-detail .preview .widget .delete:before {
 	top: -1px;
 	left: -6px;
 	bottom: -5px;
 }
 
 .widgets-container .widget .settings:hover,
-.store-detail .preview .widget .settings:hover {
+.store-detail .preview .widget .settings:hover 
+.widgets-container .widget .delete:hover,
+.store-detail .preview .widget .delete:hover {
 	color: #428BCA;
 }
 
 body.no-edit .widgets-container .widget .handle,
 body.no-edit .widgets-container .widget .settings,
+body.no-edit .widgets-container .widget .delete,
 body.no-edit .widgets-container .widget.tabbed:before {
 	display: none;
 }
+
+
+
 
 
 
@@ -2740,7 +2954,7 @@ body.no-edit .widgets-container .widget.tabbed:before {
 	opacity: 0;
 	content: "";
 	width: 22px;
-	height: 50px;
+	height: 80px;
 	position: absolute;
 	background: inherit;
 	border-top-right-radius: 3px;
@@ -2760,7 +2974,7 @@ body.no-edit .widgets-container .widget.tabbed:before {
 
 .widgets-container .widget.tabbed .maximize,
 .widgets-container .widget.tabbed .maximize {
-	top: 50px;
+	top: 80px;
 	right: -22px;
 	background: inherit;
 	box-shadow: 1px 2px 1px rgba(102, 102, 102, .1);
@@ -2780,12 +2994,35 @@ body.no-edit .widgets-container .widget.tabbed:before {
 	background: transparent;
 }
 
+.widgets-container .widget.tabbed .delete {
+	right: -23px;
+	box-shadow: none;
+	background: transparent;
+}
+
+.widgets-container .widget.tabbed-corner .delete {
+	top: 5px;
+	right: 50px;
+	box-shadow: none;
+	background: transparent;
+}
+
+.widgets-container .widget.tabbed-corner.maximized .delete {
+	right: 0;
+	display: none;
+}
+
 .widgets-container .widget.tabbed.maximized .settings {
 	right: 2px;
 }
 
+.widgets-container .widget.tabbed.maximized .delete {
+	right: -3px;
+	display: none;
+}
+
 .widgets-container .widget.tabbed .minimize {
-	top: 25px;
+	top: 0px;
 	right: -1px;
 }
 
@@ -2905,7 +3142,11 @@ body.no-edit .widgets-container .widget.tabbed:before {
 */
 .widget.splash,
 .widget.legacy.splash {
-	padding: 0;
+	padding: 0!important;
+}
+
+.grid .widget.splash {
+	height: auto!important;
 }
 
 .widget.splash .splash {
@@ -3067,7 +3308,11 @@ body.no-edit .widgets-container .widget.tabbed:before {
 */
 .widget.auth-required,
 .widget.legacy.auth-required {
-	padding: 0;
+	padding: 0!important;
+}
+
+.grid .widget.auth-required {
+	height: auto!important;
 }
 
 .widget.auth-required .notice {
@@ -3762,7 +4007,10 @@ body.no-edit .widgets-container .widget.tabbed:before {
 
 
 
-
+/* Onboarding */
+.modal-overlay.onboarding, .modal.onboarding {
+	z-index: 9998;
+}
 
 
 /*---------------------------------------------

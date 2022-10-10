@@ -16,6 +16,11 @@ define([
 
 					set.profileimage = storage.user.image ? storage.user.image.replace("s128-c", "s72-c") : Defaults.user.image;
 
+					if (set.toolbar === "full") {
+						set.toolbar = "button";
+						storage.settings = "button";
+					}
+
 					Announcements.off("countchange", null, this).on("countchange", function(count) {
 						this.set("announcements", count);
 					}, this);
@@ -120,6 +125,18 @@ define([
 
 				this.Search = new Search();
 
+
+				var insertTriggered = false;
+
+				// The inserted event is triggered once the toolbar is inserted into the document
+				this.on("inserted", function() {
+					this.Search.trigger(insertTriggered ? "reinserted" : "inserted");
+
+					if (!insertTriggered) {
+						insertTriggered = true;
+					}
+				});
+
 				// init() needs to be called after the listener is attached to prevent a race condition when storage is already loaded.
 				// It also needs to be here instead of attached directly to new Model() otherwise this.model might not be set yet.
 				this.model.on("change", this.render, this).init();
@@ -127,7 +144,8 @@ define([
 
 
 			render: function() {
-				var toolbar = this.model.get("toolbar") === "full" || this.model.get("toolbar") === true;
+				var toolbar = this.model.get("toolbar") === "full" || this.model.get("toolbar") === "full2" || this.model.get("toolbar") === true;
+				this.model.set('isFull', toolbar, {silent:true});
 
 				if (toolbar) {
 					this.Menu.$el.detach();
@@ -139,14 +157,20 @@ define([
 				this.Search.$el.detach();
 
 				this.$el.html(render("toolbar", this.model.toJSON()));
+				this.$el.toggleClass('floating', !toolbar);
+
+				var hiddenSearch = this.model.get("toolbar") === "button_ns";
+				this.$el.toggleClass('nosearch', hiddenSearch);
 
 				this.$(".search").replaceWith(this.Search.el);
 
+				this.Search.trigger("reinserted");
+
 				if (toolbar) {
 					this.$("nav.menu").replaceWith(this.Menu.el);
-
-					this.Menu.delegateEvents();
 				}
+
+				this.Menu.delegateEvents();
 
 				return this;
 			}

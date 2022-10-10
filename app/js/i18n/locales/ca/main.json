@@ -10,6 +10,12 @@
     "me":"Jo"
   },
   "remove_widget":"Treure",
+  "hide_banner":"Hide this banner",
+  "hide_ad":{
+    "content":"Would you like to hide ads until you use iChrome next, or upgrade to remove them permanently?",
+    "upgrade":"Upgrade",
+    "hide":"Hide ads"
+  },
   "alert":{
     "default_button":"Ignorar",
     "confirm_title":"Segur que ho vols fer?",
@@ -24,7 +30,7 @@
       "wrong_extension_action":"Fes clic aquí",
       "about":"Tot sobre pestanyes i widgets d'iChrome",
       "about_desc":"Les pestanyes són pàgines amb widgets - blocs que mostren coses com ara el temps, notícies i l'email. Es pot personalitzar la majoria dels widgets i afegir-ne tants com es vulgui.",
-      "terms":"Nota: Continuant, acceptes els <a href=\"https:\/\/ichro.me\/tos\" target=\"_blank\">Termes<\/a> d' iChrome i la <a href=\"https:\/\/ichro.me\/privacy\" target=\"_blank\">Política de privacitat<\/a>",
+      "terms":"Nota: Continuant, acceptes els <a href=\"https://ichro.me/tos\" target=\"_blank\">Termes</a> d' iChrome i la <a href=\"https://ichro.me/privacy\" target=\"_blank\">Política de privacitat</a>",
       "sign_in":"Inicia sessió amb el teu compte de Google",
       "sign_in_desc":"Inicia sessió amb el compte de Google abans de començar per guardar els canvis online.",
       "sign_in_desc2":"Si vols pots continuar sense registrar-te, però la teva pàgina web no es desarà online i per tant no serà accessible des d'altres ordinadors.",
@@ -36,15 +42,15 @@
     },
     "widgets":{
       "configure":"Anem a configurar un widget.",
-      "configure_desc":"Fes clic a la clau anglesa per obrir la <b>configuració<\/b> del widget del temps.",
+      "configure_desc":"Fes clic a la clau anglesa per obrir la <b>configuració</b> del widget del temps.",
       "configure_skip":"Ometre",
-      "settings":"Substitueix <b>San Francisco, CA<\/b> amb la teva ubicació, a continuació, prem <b>Desar<\/b>.",
-      "move":"Pots <b>arrossegar<\/b> widgets utilitzant la maneta ressaltada per moure'ls.",
-      "remove":"En arrossegar un widget, deixa'l anar a sobre de la barra vermella (no es mostra) per <b>eliminar-lo<\/b>.",
+      "settings":"Substitueix <b>San Francisco, CA</b> amb la teva ubicació, a continuació, prem <b>Desar</b>.",
+      "move":"Pots <b>arrossegar</b> widgets utilitzant la maneta ressaltada per moure'ls.",
+      "remove":"En arrossegar un widget, deixa'l anar a sobre de la barra vermella (no es mostra) per <b>eliminar-lo</b>.",
       "done":"Ho tinc"
     },
     "settings":{
-      "intro":"Ara fem una ullada al <b>menú<\/b> i veiem què més es pot fer.",
+      "intro":"Ara fem una ullada al <b>menú</b> i veiem què més es pot fer.",
       "instructions":"Clica la imatge ressaltada per obrir-la.",
       "skip":"Ometre",
       "tooltips":{
@@ -56,7 +62,7 @@
         "support":"Envia'ns un missatge o deixa un comentari aquí"
       },
       "finished":"Això es tot!",
-      "finished_next":"Selecciona una opció del menú (prova començant amb <b>Widgets<\/b>) i configura la teva pàgina!",
+      "finished_next":"Selecciona una opció del menú (prova començant amb <b>Widgets</b>) i configura la teva pàgina!",
       "finished_contact":"Utilitza l'enllaç de suport si necessites ajuda i ens posarem en contacte amb tu el més aviat possible."
     }
   },
@@ -77,6 +83,10 @@
   "toolbar":{
     "placeholder":"Introdueix els termes a cercar",
     "placeholder_ok":"Introdueix els termes a cercar o digues \"OK, Google\"",
+    "suggestions":{
+      "url_subtext":"Visit URL",
+      "capture_notice":"iChrome handles searches you normally make from the Omnibox. You can disable this at any time from the settings"
+    },
     "apps":{
       "search":"Cerca",
       "youtube":"YouTube",
@@ -109,7 +119,7 @@
   "voice":{
     "listening":"Escoltant...",
     "searching":"Cercant: %s",
-    "missed":"No s'ha aconseguit. <a>Torna-ho a provar<\/a>"
+    "missed":"No s'ha aconseguit. <a>Torna-ho a provar</a>"
   },
   "settings":{
     "title":"Configuració",
@@ -120,7 +130,8 @@
       "visual_sections":{
         "background":"Fons de pantalla",
         "layout":"Disseny",
-        "theme":"Tema de l'app"
+        "theme":"Tema de l'app",
+        "ad_placement":"Ad placement"
       },
       "toolbar":"Barra d'eines",
       "toolbar_sections":{
@@ -130,6 +141,7 @@
       },
       "tabs":"Pestanyes",
       "widgets":"Widgets",
+      "ads":"Ads",
       "pro":"Pro",
       "accounts":"Compte",
       "misc":"Misceŀlània",
@@ -188,9 +200,10 @@
         "title":"Cerca",
         "desc":"Aquesta configuració controla com funcionen el quadre de cerca i la cerca per veu",
         "engine":"Motor de cerca",
-        "engines_google":"Google (per defecte)",
+        "engines_default":"Default",
         "engines_custom":"Personalitzat",
-        "engines_custom_desc":"Introduïu la URL a la que s'enviaran les consultes, amb <b>%s<\/b> on hauria d'anar la consulta.",
+        "engines_custom_desc":"Introduïu la URL a la que s'enviaran les consultes, amb <b>%s</b> on hauria d'anar la consulta.",
+        "omnibox_capture":"Handle searches normally made in the Omnibox",
         "voice":"Habilita la cerca per veu",
         "ok_google":"Activar la detecció de la paraula clau \"OK Google\"",
         "search_tab":"Obre els Resultats de la cerca en una pestanya nova"
@@ -203,7 +216,7 @@
         "custom_note1":"3 com a màxim",
         "custom_note2":"8 per als usuaris",
         "custom_name_placeholder":"Text de l'enllaç",
-        "custom_url_placeholder":"URL de l'enllaç, p. ex. https:\/\/www.google.com\/"
+        "custom_url_placeholder":"URL de l'enllaç, p. ex. https://www.google.com/"
       }
     },
     "misc":{
@@ -220,10 +233,10 @@
     "accounts":{
       "status":{
         "title":"Estat",
-        "signed_in":"Actualment has <b>iniciat sessió<\/b> com %s (%s).",
+        "signed_in":"Actualment has <b>iniciat sessió</b> com %s (%s).",
         "reset_account":"Restablir el compte",
         "sign_out":"Tancar sessió",
-        "signed_out":"<b>Sessió no iniciada<\/b>. Inicia sessió amb el teu compte de Google ara per emmagatzemar i sincronitzar la teva configuració de forma segura.",
+        "signed_out":"<b>Sessió no iniciada</b>. Inicia sessió amb el teu compte de Google ara per emmagatzemar i sincronitzar la teva configuració de forma segura.",
         "sign_in":"Inicia sessió amb Google"
       },
       "reset_confirm_desc":"Això esborrarà totes les dades locals i sincronitzades, no hi ha cap còpia de seguretat i no hi ha manera de desfer-ho.",
@@ -244,12 +257,12 @@
       },
       "css":{
         "title":"CSS personalizat",
-        "desc":"Es pot utilitzar CSS (<a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/CSS\" target=\"blank\"> definició<\/a>) per personalitzar gairebé qualsevol part de l'iChrome.",
+        "desc":"Es pot utilitzar CSS (<a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS\" target=\"blank\"> definició</a>) per personalitzar gairebé qualsevol part de l'iChrome.",
         "placeholder":"Introduir fins a 1000 caràcters de CSS aquí"
       },
       "debug_tools":{
         "title":"Eines de depuració",
-        "desc":"<b>Avís:<\/b> Aquestes eines poden esborrar la configuració sencera en un sol clic. Útilitza-les només si el teu desenvolupador t'ho indica.",
+        "desc":"<b>Avís:</b> Aquestes eines poden esborrar la configuració sencera en un sol clic. Útilitza-les només si el teu desenvolupador t'ho indica.",
         "open":"Obrir eines"
       }
     },
@@ -282,6 +295,7 @@
         "bg_downloads":"Fons descarregables",
         "weather":"Previsions meteorològiques horàries fins a 10 dies vista",
         "toolbar":"Més enllaços a la barra d'eines",
+        "ads":"A completely ad-free experience",
         "support":"Assistència prioritària i suggeriments",
         "buy_pro":"Comprar la versió Pro"
       },
@@ -316,7 +330,7 @@
           "education":"Educació",
           "custom":"Personalitzat"
         },
-        "uneditable_desc":"Els plans de negocis, educació i personalitzats no es poden actualitzar des de dins de l'iChrome. Si us plau <a href=\"mailto:support@ichro.me\"> Contacti amb nosaltres<\/a> per actualitzar o anul·lar la seva subscripció.",
+        "uneditable_desc":"Els plans de negocis, educació i personalitzats no es poden actualitzar des de dins de l'iChrome. Si us plau <a href=\"mailto:support@ichro.me\"> Contacti amb nosaltres</a> per actualitzar o anul·lar la seva subscripció.",
         "status":"Estat",
         "status_active":"Actiu",
         "status_trial":"Prova",
@@ -330,6 +344,24 @@
         "cancel":"Cancel·lar la subscripció",
         "cancel_notice":"La subscripció es cancel·larà immediatament",
         "cancel_notice2":"If you would like a refund, please contact us at support@ichro.me"
+      }
+    },
+    "ads":{
+      "text1":"iChrome displays a few small ads to pay for server, support and development costs. With these ads, we can afford to offer iChrome free to everyone.",
+      "text2":"Here you can choose where those ads are shown, or buy ad-free to permanently remove them.",
+      "text3":"Ad-free is a one-time purchase that permanently removes ads from iChrome wherever you're signed in. You can also upgrade to Pro for extra features in addition to an ad-free experience.",
+      "upgrade_btn":"Upgrade to ad-free",
+      "already_upgraded":"It looks like you've already upgraded to ad-free",
+      "signin":"Sign in",
+      "signin_desc":"Sign in before upgrading so we can link your purchase to your account",
+      "signin_btn":"Sign in",
+      "thank_you":"Thank you for upgrading to ad-free!",
+      "placement":{
+        "title":"Ad placement",
+        "left":"In the leftmost column",
+        "right":"In the rightmost column",
+        "top":"Above the tab",
+        "bottom":"Floating at the bottom"
       }
     }
   },
@@ -385,7 +417,7 @@
           "hide":"Hide"
         },
         "account":"Account ID",
-        "account_help":"If you're signed into multiple accounts, this is the \"authuser=\" value.\n<br \/><br \/>\nFor example, if you're signed into two accounts, jsmith1@gmail.com and jsmith2@gmail.com, the \"authuser\" value for jsmith2@gmail.com would be 1 since it's the second account (counting from zero) that you're signed into.",
+        "account_help":"If you're signed into multiple accounts, this is the \"authuser=\" value.\n<br /><br />\nFor example, if you're signed into two accounts, jsmith1@gmail.com and jsmith2@gmail.com, the \"authuser\" value for jsmith2@gmail.com would be 1 since it's the second account (counting from zero) that you're signed into.",
         "account_placeholder":"Your \"authuser=\" value",
         "on":"On",
         "off":"Off"
@@ -436,7 +468,7 @@
       "name_placeholder":"Enter a theme name",
       "image":"Image URL",
       "image_placeholder":"Enter a background image URL",
-      "image_help":"Uploaded images <b>cannot be synced<\/b> between computers.<br \/><br \/>If this is important to you, please upload your image to a service such as <a href=\"http:\/\/imgur.com\/\" target=\"_blank\">imgur<\/a>. Then copy and paste the URL ending with an extension (i.e. .jpg) and paste it into the field on the left.",
+      "image_help":"Uploaded images <b>cannot be synced</b> between computers.<br /><br />If this is important to you, please upload your image to a service such as <a href=\"http://imgur.com/\" target=\"_blank\">imgur</a>. Then copy the URL ending with an extension (i.e. .jpg) and paste it into the field on the left.",
       "color":"Fallback Color",
       "color_placeholder":"Enter any color name",
       "position":"Position",

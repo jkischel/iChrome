@@ -53,7 +53,7 @@ define(["lodash", "jquery", "widgets/views/settings", "jquery.serializejson"], f
 
 						var hEscape = function(str) {
 							str = String(str || "");
-							
+
 							if (/[&<>\{\"\']/.test(str)) {
 								return str
 									.replace(/&/g, "&amp;")

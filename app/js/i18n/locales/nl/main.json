@@ -10,6 +10,12 @@
     "me":"Ik"
   },
   "remove_widget":"Verwijder",
+  "hide_banner":"Hide this banner",
+  "hide_ad":{
+    "content":"Would you like to hide ads until you use iChrome next, or upgrade to remove them permanently?",
+    "upgrade":"Upgrade",
+    "hide":"Hide ads"
+  },
   "alert":{
     "default_button":"Negeren",
     "confirm_title":"Weet u zeker dat u dit wilt doen?",
@@ -24,7 +30,7 @@
       "wrong_extension_action":"Klik hier",
       "about":"Bij iChrome draait alles om tabbladen en widgets",
       "about_desc":"Tabbladen zijn pagina's gevuld met widgets - blokken die zaken zoals het weer, nieuws en uw e-mail tonen. De meeste widgets kunt u aanpassen en u kunt zoveel widgets toevoegen als u wilt.",
-      "terms":"Opmerking: Door verder te gaan, gaat u akkoord met de <a href=\"https:\/\/ichro.me\/tos\" target=\"_blank\">voorwaarden<\/a> en het <a href=\"https:\/\/ichro.me\/privacy\" target=\"_blank\">privacybeleid<\/a> van iChrome",
+      "terms":"Opmerking: Door verder te gaan, gaat u akkoord met de <a href=\"https://ichro.me/tos\" target=\"_blank\">voorwaarden</a> en het <a href=\"https://ichro.me/privacy\" target=\"_blank\">privacybeleid</a> van iChrome",
       "sign_in":"Log in met Google account",
       "sign_in_desc":"Meld u aan met uw Google-account voordat u begint, om uw aanpassingen veilig online op te kunnen slaan.",
       "sign_in_desc2":"U kunt uitgelogd blijven als u wilt, maar uw pagina zal dan niet online opgeslagen worden en zal niet beschikbaar zijn op andere computers.",
@@ -36,15 +42,15 @@
     },
     "widgets":{
       "configure":"Laten we een widget instellen.",
-      "configure_desc":"Klik op de moersleutel om de <b>instellingen<\/b> van de weerwidget te openen.",
+      "configure_desc":"Klik op de moersleutel om de <b>instellingen</b> van de weerwidget te openen.",
       "configure_skip":"Overslaan",
-      "settings":"Vervang <b>San Francisco, CA<\/b> door uw locatie en druk daarna op <b>Opslaan<\/b>.",
-      "move":"U kunt widgets <b>verslepen<\/b> door ze met het gemarkeerde handvat te verplaatsen.",
-      "remove":"Sleep de widget naar de rode balk (niet weergegeven) om deze te <b>verwijderen<\/b>.",
+      "settings":"Vervang <b>San Francisco, CA</b> door uw locatie en druk daarna op <b>Opslaan</b>.",
+      "move":"U kunt widgets <b>verslepen</b> door ze met het gemarkeerde handvat te verplaatsen.",
+      "remove":"Sleep de widget naar de rode balk (niet weergegeven) om deze te <b>verwijderen</b>.",
       "done":"Oké, ik snap het"
     },
     "settings":{
-      "intro":"Laten we nu een kijkje nemen naar <b>het menu<\/b> om te zien wat u nog meer kunt doen.",
+      "intro":"Laten we nu een kijkje nemen naar <b>het menu</b> om te zien wat u nog meer kunt doen.",
       "instructions":"Klik op de gemarkeerde afbeelding om deze te openen.",
       "skip":"Overslaan",
       "tooltips":{
@@ -56,7 +62,7 @@
         "support":"Stuur ons een bericht of laat hier een review achter"
       },
       "finished":"Klaar!",
-      "finished_next":"Kies een optie uit het menu (probeer bijvoorbeeld <b>Widgets<\/b>) en stel uw pagina samen!",
+      "finished_next":"Kies een optie uit het menu (probeer bijvoorbeeld <b>Widgets</b>) en stel uw pagina samen!",
       "finished_contact":"Gebruik de supportlink als u hulp nodig heeft. Wij zullen dan zo spoedig mogelijk contact met u opnemen."
     }
   },
@@ -77,6 +83,10 @@
   "toolbar":{
     "placeholder":"Vul uw zoekopdracht in",
     "placeholder_ok":"Vul uw zoekopdracht in of zeg \"OK, Google\"",
+    "suggestions":{
+      "url_subtext":"Visit URL",
+      "capture_notice":"iChrome handles searches you normally make from the Omnibox. You can disable this at any time from the settings"
+    },
     "apps":{
       "search":"Zoeken",
       "youtube":"YouTube",
@@ -109,7 +119,7 @@
   "voice":{
     "listening":"Luisteren...",
     "searching":"Zoeken naar: %s",
-    "missed":"Niet verstaan. <a>Probeer opnieuw<\/a>"
+    "missed":"Niet verstaan. <a>Probeer opnieuw</a>"
   },
   "settings":{
     "title":"Instellingen",
@@ -120,7 +130,8 @@
       "visual_sections":{
         "background":"Achtergrond",
         "layout":"Layout",
-        "theme":"Thema's"
+        "theme":"Thema's",
+        "ad_placement":"Ad placement"
       },
       "toolbar":"Menubalk",
       "toolbar_sections":{
@@ -130,6 +141,7 @@
       },
       "tabs":"Tabbladen",
       "widgets":"Widgets",
+      "ads":"Ads",
       "pro":"PRO",
       "accounts":"Account",
       "misc":"Diversen",
@@ -188,9 +200,10 @@
         "title":"Zoeken",
         "desc":"Deze instellingen bepalen hoe het zoekvak en de stemzoekfunctie functioneren",
         "engine":"Zoekmachine",
-        "engines_google":"Google (standaard)",
+        "engines_default":"Default",
         "engines_custom":"Custom",
-        "engines_custom_desc":"Voer een URL in waar de query's naar verzonden moeten worden, met <b>%s<\/b> waar de query naar moet gaan.",
+        "engines_custom_desc":"Voer een URL in waar de query's naar verzonden moeten worden, met <b>%s</b> waar de query naar moet gaan.",
+        "omnibox_capture":"Handle searches normally made in the Omnibox",
         "voice":"Stembediening inschakelen",
         "ok_google":"Schakel \"OK Google\" herkenning in",
         "search_tab":"Open de zoekresultaten in een nieuw tabblad"
@@ -203,7 +216,7 @@
         "custom_note1":"Maximaal 3 toegestaan",
         "custom_note2":"gebruikers krijgen 8",
         "custom_name_placeholder":"Koppelingstekst",
-        "custom_url_placeholder":"Link URL, bijvoorbeeld: https:\/\/www.google.com\/"
+        "custom_url_placeholder":"Link URL, bijvoorbeeld: https://www.google.com/"
       }
     },
     "misc":{
@@ -220,10 +233,10 @@
     "accounts":{
       "status":{
         "title":"Status",
-        "signed_in":"U bent momenteel <b>ingelogd<\/b> als %s (%s).",
+        "signed_in":"U bent momenteel <b>ingelogd</b> als %s (%s).",
         "reset_account":"Account resetten",
         "sign_out":"Uitloggen",
-        "signed_out":"U bent <b>momenteel niet ingelogd<\/b>. Meld u nu aan met uw Google-account voor het veilig opslaan en synchroniseren van uw configuratie.",
+        "signed_out":"U bent <b>momenteel niet ingelogd</b>. Meld u nu aan met uw Google-account voor het veilig opslaan en synchroniseren van uw configuratie.",
         "sign_in":"Log in met Google"
       },
       "reset_confirm_desc":"Dit zal alle lokale en gesynchroniseerde gegevens verwijderen, er is geen back-up en geen manier om dit ongedaan te maken.",
@@ -244,12 +257,12 @@
       },
       "css":{
         "title":"Aangepaste CSS",
-        "desc":"U kunt CSS (<a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/CSS\" target=\"blank\"> definitie<\/a>) gebruiken om bijna elk onderdeel van iChrome aan te passen.",
+        "desc":"U kunt CSS (<a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS\" target=\"blank\"> definitie</a>) gebruiken om bijna elk onderdeel van iChrome aan te passen.",
         "placeholder":"Voer hier CSS van maximaal 1000 regels in"
       },
       "debug_tools":{
         "title":"Debughulpmiddelen",
-        "desc":"<b>WAARSCHUWING:<\/b> Deze hulpmiddelen kunnen uw gehele configuratie in een enkele klik wissen. Gebruik ze alleen als uw ontwikkelaar u verzoekt dit te doen.",
+        "desc":"<b>WAARSCHUWING:</b> Deze hulpmiddelen kunnen uw gehele configuratie in een enkele klik wissen. Gebruik ze alleen als uw ontwikkelaar u verzoekt dit te doen.",
         "open":"Open hulpmiddelen"
       }
     },
@@ -282,6 +295,7 @@
         "bg_downloads":"Downloadbare achtergronden",
         "weather":"Weersverwachting per uur tot 10 dagen vooruit",
         "toolbar":"Meer werkbalk links",
+        "ads":"A completely ad-free experience",
         "support":"Prioriteeer steun en suggesties",
         "buy_pro":"Koop de volledige versie"
       },
@@ -316,7 +330,7 @@
           "education":"Onderwijs",
           "custom":"Custom"
         },
-        "uneditable_desc":"Bedrijfsleven, onderwijs, en aangepaste abonnementen kunnen niet worden bijgewerkt binnen iChrome. Gelieve <a href=\"mailto:support@ichro.me\">Neem contact met ons op<\/a> om uw abonnement bij te werken of te annuleren.",
+        "uneditable_desc":"Bedrijfsleven, onderwijs, en aangepaste abonnementen kunnen niet worden bijgewerkt binnen iChrome. Gelieve <a href=\"mailto:support@ichro.me\">Neem contact met ons op</a> om uw abonnement bij te werken of te annuleren.",
         "status":"Status",
         "status_active":"Actief",
         "status_trial":"Proefperiode",
@@ -330,6 +344,24 @@
         "cancel":"Abonnement annuleren",
         "cancel_notice":"Uw abonnement zal onmiddellijk worden geannuleerd",
         "cancel_notice2":"Als u graag een restitutie wilt, neem dan gelieve contact met ons op via support@ichro.me"
+      }
+    },
+    "ads":{
+      "text1":"iChrome displays a few small ads to pay for server, support and development costs. With these ads, we can afford to offer iChrome free to everyone.",
+      "text2":"Here you can choose where those ads are shown, or buy ad-free to permanently remove them.",
+      "text3":"Ad-free is a one-time purchase that permanently removes ads from iChrome wherever you're signed in. You can also upgrade to Pro for extra features in addition to an ad-free experience.",
+      "upgrade_btn":"Upgrade to ad-free",
+      "already_upgraded":"It looks like you've already upgraded to ad-free",
+      "signin":"Aanmelden",
+      "signin_desc":"Sign in before upgrading so we can link your purchase to your account",
+      "signin_btn":"Aanmelden",
+      "thank_you":"Thank you for upgrading to ad-free!",
+      "placement":{
+        "title":"Ad placement",
+        "left":"In the leftmost column",
+        "right":"In the rightmost column",
+        "top":"Above the tab",
+        "bottom":"Floating at the bottom"
       }
     }
   },
@@ -385,7 +417,7 @@
           "hide":"Verbergen"
         },
         "account":"Account-ID",
-        "account_help":"Als u bij meerdere account bent aangemeld, is dit de \"authuser=\" waarde.\n<br \/><br \/>\nVoorbeeld, als u bij twee accounts bent aangemeld, jsmith1@gmail.com en jsmith2@gmail.com, de \"authuser\" waarde voor jsmith2@gmail.com zou 1 zijn aangezien het het tweede account (beginnend van 0) is waar u bent aangemeld.",
+        "account_help":"Als u bij meerdere account bent aangemeld, is dit de \"authuser=\" waarde.\n<br /><br />\nVoorbeeld, als u bij twee accounts bent aangemeld, jsmith1@gmail.com en jsmith2@gmail.com, de \"authuser\" waarde voor jsmith2@gmail.com zou 1 zijn aangezien het het tweede account (beginnend van 0) is waar u bent aangemeld.",
         "account_placeholder":"Uw \"authuser =\" waarde",
         "on":"Aan",
         "off":"Uit"
@@ -436,7 +468,7 @@
       "name_placeholder":"Voer de naam van een thema in",
       "image":"Afbeelding-URL",
       "image_placeholder":"Voer een URL in voor een achtergrondplaatje",
-      "image_help":"Afbeeldingen die zijn geüpload <b>kunnen niet worden gesynchroniseerd<\/b> tussen computers.<br \/><br \/>Als dit belangrijk is voor u, gelieve uw afbeelding te uploaden naar een service zoals <a href=\"http:\/\/imgur.com\/\" target=\"_blank\">imgur<\/a>. Kopieer en plak de URL die eindigt met de extentie (bv., .jpg) en plak deze in het veld aan de linkerkant.",
+      "image_help":"Afbeeldingen die zijn geüpload <b>kunnen niet worden gesynchroniseerd</b> tussen computers.<br /><br />Als dit belangrijk is voor u, gelieve uw afbeelding te uploaden naar een service zoals <a href=\"http://imgur.com/\" target=\"_blank\">imgur</a>. Kopieer en plak de URL die eindigt met de extentie (bv., .jpg) en plak deze in het veld aan de linkerkant.",
       "color":"Achtergrondkleur",
       "color_placeholder":"Voer een kleurnaam in",
       "position":"Positie",

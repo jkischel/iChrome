@@ -42,7 +42,7 @@
       "title":"Bookmark Title",
       "title_placeholder":"Google",
       "url":"Bookmark URL",
-      "url_placeholder":"http:\/\/www.google.com\/",
+      "url_placeholder":"http://www.google.com/",
       "save":"Зберегти"
     },
     "new_caption":"Нова",
@@ -73,9 +73,19 @@
       "calendar":"Календар",
       "show":"Show events from",
       "show_options":{
-        "all":"All time",
-        "today":"Today only"
-      }
+        "all":"Весь час (до 40 подій)",
+        "today":"Сьогодні"
+      },
+			"view": "Тип календаря",
+			"view_options": {
+				"agenda1d": "Сьогодні",
+				"list2w": "Список",
+				"short1d": "Короткий"
+			},
+			"range": {
+				"start": "Сьогодні, З",
+				"end": "Сьогодні, До"
+			}
     },
     "title":"Agenda",
     "calendar":"Календар",
@@ -89,10 +99,10 @@
       "timezone_local":"Local",
       "format":"Clock Format",
       "format_options":{
-        "ampm":"AM\/PM - Digital",
+        "ampm":"AM/PM - Digital",
         "24hour":"24 Hour - Digital",
         "analog":"12 Hour - Analog",
-        "ampmseconds":"AM\/PM - Digital, No Seconds",
+        "ampmseconds":"AM/PM - Digital, No Seconds",
         "24hourseconds":"24 Hour - Digital, No Seconds"
       },
       "sound":"Alert Sound"
@@ -184,7 +194,7 @@
     "desc":"Displays the top items on Reddit for any given subreddit.",
     "settings":{
       "subreddit":"Subreddit",
-      "subreddit_help":"Enter any subreddit by the part past <b>\/r\/<\/b> when on Reddit.\n<br \/><br \/>\nFor example, Technology is at: <a href=\"http:\/\/www.reddit.com\/r\/technology\">http:\/\/www.reddit.com\/r\/technology<\/a>, therefore you would enter <b>technology<\/b>",
+      "subreddit_help":"Enter any subreddit by the part past <b>/r/</b> when on Reddit.\n<br /><br />\nFor example, Technology is at: <a href=\"http://www.reddit.com/r/technology\">http://www.reddit.com/r/technology</a>, therefore you would enter <b>technology</b>",
       "subreddit_placeholder":"Enter a subreddit to show links from. (i.e. technology)",
       "sort":"Sort Order",
       "sort_options":{
@@ -260,7 +270,7 @@
         "six":"Six small"
       },
       "from":"Show Videos From",
-      "from_help":"This must be an <b>exact<\/b> username as shown in the URL of the page when you're viewing their profile.\n<br \/><br \/>\nThis value never includes spaces.",
+      "from_help":"This must be an <b>exact</b> username as shown in the URL of the page when you're viewing their profile.\n<br /><br />\nThis value never includes spaces.",
       "from_placeholder":"Leave blank to show Top Videos",
       "open":"Open search results in"
     },
@@ -294,9 +304,9 @@
     "desc":"Displays a link, optionally with a title and thumbnail",
     "settings":{
       "link":"Link URL",
-      "link_placeholder":"http:\/\/www.google.com\/",
+      "link_placeholder":"http://www.google.com/",
       "image":"Image URL",
-      "image_placeholder":"http:\/\/www.example.com\/image.png",
+      "image_placeholder":"http://www.example.com/image.png",
       "color":"Image Background Color",
       "style":"Image Style",
       "style_fill":"Fill",
@@ -372,11 +382,11 @@
     "desc":"Відображення різноманітних показників з профілю Google Analytics.",
     "sessions":"сесії",
     "pageviews":"Переглядів сторінок",
-    "pagesvisit":"Сторінки\/відвідування",
+    "pagesvisit":"Сторінки/відвідування",
     "bouncerate":"Bounce Rate",
     "completions":"Completions",
     "noprofile_title":"No profile selected",
-    "noprofile":"Схоже, ви ще не вибрали профіль.\n<br \/><br \/>\nОберіть за натиснувши на значок гайкового ключа у верхньому правому кутку.",
+    "noprofile":"Схоже, ви ще не вибрали профіль.\n<br /><br />\nОберіть за натиснувши на значок гайкового ключа у верхньому правому кутку.",
     "settings":{
       "profile":"Профіль"
     }
@@ -393,7 +403,6 @@
   "currency":{
     "name":"Валюта",
     "desc":"Let's you convert between any two of 169 currencies.",
-    "to_label":"to",
     "recently_used":"Recently Used"
   },
   "dictionary":{
@@ -425,7 +434,7 @@
     "desc":"Displays a webpage of your choice within an iframe.",
     "settings":{
       "url":"Frame URL",
-      "url_placeholder":"i.e. http:\/\/www.google.com\/",
+      "url_placeholder":"i.e. http://www.google.com/",
       "height":"Frame Height",
       "padding":"Padding"
     }
@@ -477,7 +486,7 @@
     },
     "by":"за",
     "all_articles":"All articles",
-    "feed_error":"An error occurred while trying to fetch the feed at: %s.\r\nPlease double check the URL and\/or modify the widget settings."
+    "feed_error":"An error occurred while trying to fetch the feed at: %s.\r\nPlease double check the URL and/or modify the widget settings."
   },
   "sports":{
     "name":"Sports",
@@ -533,7 +542,7 @@
     "avg_volume":"Avg. Volume",
     "shares":"Shares",
     "cap":"Market Cap",
-    "pe":"Price \/ Earnings",
+    "pe":"Price / Earnings",
     "eps":"EPS",
     "beta":"Beta",
     "inst_own":"Inst. own"
@@ -557,7 +566,7 @@
   },
   "topsites":{
     "name":"Top Sites",
-    "desc":"Displays your most visited\/top sites.",
+    "desc":"Displays your most visited/top sites.",
     "settings":{
       "show":"Number of sites shown"
     }
@@ -579,7 +588,15 @@
       }
     },
     "to_home":"to home",
-    "to_work":"to work"
+    "to_work":"to work",
+    "hour":"%s hour",
+    "hours":"%s hours",
+    "hours_letter":"%sh",
+    "minute":"%s minute",
+    "minutes":"%s minutes",
+    "minute_short":"%s min",
+    "minutes_short":"%s mins",
+    "minutes_letter":"%sm"
   },
   "translate":{
     "name":"Translate",

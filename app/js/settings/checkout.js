@@ -1,20 +1,31 @@
 /**
  * The checkout handler
  */
-define(["lodash", "jquery", "browser/api", "modals/alert", "i18n/i18n", "core/auth"], function(_, $, Browser, Alert, Translate, Auth) {
+define(["lodash", "jquery", "browser/api", "core/analytics", "modals/alert", "i18n/i18n", "core/auth"], function(_, $, Browser, Track, Alert, Translate, Auth) {
 	var POPUP_WIDTH = 400,
 		POPUP_HEIGHT = 500,
-		CHECKOUT_URL = "https://api.ichro.me/billing/v1/checkout";
+		PRO_URL = "https://api.ichro.me/billing/v1/checkout",
+		ADFREE_URL = "https://api.ichro.me/billing/v1/adfree/checkout";
 
-	var Checkout = function(isUpdating) {
-		this.isUpdating = !!isUpdating;
+	var Checkout = function(type, isUpdating) {
+		var url;
 
-		var url = CHECKOUT_URL + "?" + $.param({
-			plan: Auth.get("plan"),
-			updating: this.isUpdating,
-			auth_token: Auth.get("token"),
-			appVersion: Browser.app.version
-		});
+		if (type === "adfree") {
+			url = ADFREE_URL + "?" + $.param({
+				auth_token: Auth.get("token"),
+				appVersion: Browser.app.version
+			});
+		}
+		else {
+			this.isUpdating = !!isUpdating;
+
+			url = PRO_URL + "?" + $.param({
+				plan: Auth.get("plan"),
+				updating: this.isUpdating,
+				auth_token: Auth.get("token"),
+				appVersion: Browser.app.version
+			});
+		}
 
 		Browser.windows.create({
 			url: url,
@@ -58,6 +69,10 @@ define(["lodash", "jquery", "browser/api", "modals/alert", "i18n/i18n", "core/au
 
 				subscribe: function(params) {
 					this.subscribe(params.plan, params.paymentNonce);
+				}.bind(this),
+
+				upgrade: function(params) {
+					this.upgradeToAdFree(params.paymentNonce);
 				}.bind(this),
 
 				checkoutStrings: function() {
@@ -149,6 +164,10 @@ define(["lodash", "jquery", "browser/api", "modals/alert", "i18n/i18n", "core/au
 							Auth.set("token", d.authToken);
 						}
 
+						if (!isUpdating) {
+							Track.FB.logPurchase(plan === "pro_monthly" ? 2 : 20, "USD", { fb_content_type: "pro", fb_content_id: plan });
+						}
+
 						Alert({
 							title: Translate("settings.pro.checkout.thank_you"),
 							contents: isUpdating ? null : [Translate("settings.pro.checkout.thank_you2")]
@@ -160,6 +179,41 @@ define(["lodash", "jquery", "browser/api", "modals/alert", "i18n/i18n", "core/au
 								location.reload();
 							}, 4000);
 						}
+					}
+					else {
+						Alert([Translate("settings.pro.checkout.error"), Translate("settings.pro.checkout.error2")]);
+					}
+				}
+			}).fail(function() {
+				Alert([Translate("settings.pro.checkout.error"), Translate("settings.pro.checkout.error2")]);
+			});
+		},
+
+		upgradeToAdFree: function(paymentNonce) {
+			this.destroy();
+
+			Auth.ajax({
+				method: "PUT",
+				url: "/billing/v1/adfree/upgrade",
+				data: {
+					paymentNonce: paymentNonce
+				},
+				success: function(d) {
+					if (d && d.success) {
+						if (d.authToken) {
+							Auth.set("token", d.authToken);
+						}
+
+						Track.FB.logPurchase(10, "USD", { fb_content_type: "adfree", fb_content_id: "adfree_onetime" });
+
+						Alert({
+							title: Translate("settings.ads.thank_you"),
+							contents: [Translate("settings.pro.checkout.thank_you2")]
+						});
+
+						setTimeout(function() {
+							location.reload();
+						}, 4000);
 					}
 					else {
 						Alert([Translate("settings.pro.checkout.error"), Translate("settings.pro.checkout.error2")]);

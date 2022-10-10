@@ -90,12 +90,17 @@ define([
 			FileSystem.clear(function() {
 				// A reset shouldn't affect these since we'll still want to sync when this is over
 				var uses = Browser.storage.uses,
+					version = Browser.storage.version,
 					authData = Browser.storage.authData;
 
 				Browser.storage.clear();
 
 				if (uses) {
 					Browser.storage.uses = uses;
+				}
+
+				if (version) {
+					Browser.storage.version = version;
 				}
 
 				if (authData) {
@@ -191,7 +196,7 @@ define([
 				image = storage.settings.backgroundImage;
 			}
 			else {
-				image = (storage.cached[storage.settings.theme] || storage.themes[storage.settings.theme.replace("custom", "")] || storage.cached[0]).image;
+				image = (storage.cached[storage.settings.theme] || storage.themes[(storage.settings.theme + "").replace("custom", "")] || storage.cached[0]).image;
 			}
 
 			if (!image || image.slice(-4) === ".mp4") {
@@ -328,6 +333,9 @@ define([
 					var syncString = JSON.stringify(_.pick(storage, "user", "tabsSync", "settings", "themes"));
 
 					var sync = forceSync || (syncString !== lastSynced);
+					if (!storage.isSync) {
+						storage.isSync = sync;
+					}
 
 					if (sync) {
 						lastSynced = syncString;
@@ -338,11 +346,13 @@ define([
 
 					if (!now) {
 						timeout = setTimeout(function() {
-							save(sync, cb);
+							save(storage.isSync, cb);
+							storage.isSync = false;
 						}, 2000);
 					}
 					else {
-						save(sync, cb);
+						save(storage.isSync, cb);
+						storage.isSync = false;
 					}
 
 
@@ -358,7 +368,8 @@ define([
 				else {
 					cb();
 				}
-			}
+			},
+			isSync : false
 		};
 
 		var parseData = function(data) {

@@ -14,9 +14,11 @@ require.config({
 		"jquery": "lib/jquery",
 		"backbone": "lib/backbone",
 		"oauth2": "../oauth2/oauth2",
+		"fbanalytics": "lib/fbanalytics",
 		"widgetTemplate": "widgets/registry/template",
 		"jquery.serializejson": "lib/jquery.serializejson",
-		"backbone.viewcollection": "lib/backbone.viewcollection"
+		"backbone.viewcollection": "lib/backbone.viewcollection",
+		"fullcalendar": "lib/fullcalendar",
 	},
 	map: {
 		"*": {
@@ -34,14 +36,16 @@ require.config({
 // require wait at least 4ms before resolving, even if the module has been
 // registered (but not initialized). The difference is difficult to measure but
 // this saves approximately 200ms until the first full widget paint.
-require.s.contexts._.nextTick = function(fn) {
-	return fn();
-};
+if (require.s) {
+	require.s.contexts._.nextTick = function(fn) {
+		return fn();
+	};
+}
 
 
 /**
  * Init
  */
-require(["core/init", "onboarding/controller", "notices/updated", "notices/signin"], function(app) {
+require(["core/init", "core/autorun", "core/pgdg"], function(app) {
 	window.App = app;
 });

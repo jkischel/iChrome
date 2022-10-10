@@ -9,6 +9,20 @@
 	</head>
 
 	<body class="unloaded">
+		<!--
+			This element is used to capture text typed before the page is finished loading so
+			it can be used in searches that are run.
+		-->
+		<input type="search" id="preload-search-input" data-submit="false" autofocus="autofocus" tabindex="-1" style="position:fixed;top:-100vh;left:-100vw" />
+
+		<script id="preload-search-script">
+			document.getElementById("preload-search-input").onkeydown = function(e) {
+				if (e.keyCode === 13) {
+					this.setAttribute("data-submit", "true");
+				}
+			};
+		</script>
+
 		<div class="loading">
 			<!-- This is nested inside the element so it gets cleaned up after load along with the element -->
 			<style>
@@ -50,7 +64,7 @@
 			<img src="icon/128.png" />
 		</div>
 
-		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/style.css?__NO_CACHE__" rel="stylesheet" />
 
 		<!--
 			The hash listed in the manifest's CSP must be updated any time this script is changed
@@ -99,8 +113,18 @@
 			<span class="icon m-icon">info_outline</span>
 		</div>
 
+		<div class="add-widget-link">
+			<span class="icon m-icon">add_circle</span>
+		</div>
+
+		<div class="feedback-link">
+			<a href="https://ichrome-user-feedback.paperform.co" target="_blank">
+				<span class="icon m-icon">feedback</span>
+			</a>
+		</div>
+
 		<script type="text/javascript" src="js/lib/require.js"></script>
 
-		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/app.js?__NO_CACHE__"></script>
 	</body>
 </html>

@@ -2,10 +2,8 @@
  * The onboarding guide this is shown once on installation unless a logged in user is synced in
  */
 define([
-	"lodash", "backbone", "browser/api", "core/analytics", "onboarding/modal", "onboarding/widgets", "onboarding/settings"
-], function(_, Backbone, Browser, Track, Modal, WidgetGuide, SettingsGuide) {
-	var firstRun = Browser.storage.firstRun === "true" || Browser.storage.firstRun === "resume";
-
+	"lodash", "backbone", "browser/api", "core/analytics", "onboarding/modal", "onboarding/widgets", "onboarding/settings", "onboarding/modalpro"
+], function(_, Backbone, Browser, Track, Modal, WidgetGuide, SettingsGuide, ModalPro) {
 	var Controller = function() {
 		// The onboarding process is heavily tracked, it's important to know where new users
 		// might be giving up or how far they get through the process
@@ -50,6 +48,8 @@ define([
 			this.trigger("complete");
 
 			Track.event("Onboarding", "Complete");
+
+			Track.FB.logEvent("COMPLETED_TUTORIAL");
 		},
 
 		showWidgetGuide: function() {
@@ -65,13 +65,17 @@ define([
 
 			this.settingsGuide = new SettingsGuide();
 
-			this.listenToOnce(this.settingsGuide, "complete", this.complete);
+			this.listenToOnce(this.settingsGuide, "complete", this.showProModal);
+		},
+
+		showProModal: function() {
+			Track.event("Onboarding", "ModalPro", "Shown");
+
+			this.modal = new ModalPro();
+
+			this.listenToOnce(this.modal, "complete", this.complete);
 		}
 	});
 
-	if (firstRun) {
-		new Controller();
-	}
-
-	return Controller;
+	return new Controller();
 });

@@ -10,6 +10,12 @@
     "me":"我"
   },
   "remove_widget":"刪除",
+  "hide_banner":"Hide this banner",
+  "hide_ad":{
+    "content":"Would you like to hide ads until you use iChrome next, or upgrade to remove them permanently?",
+    "upgrade":"Upgrade",
+    "hide":"Hide ads"
+  },
   "alert":{
     "default_button":"取消",
     "confirm_title":"你確定要這樣做嗎？",
@@ -24,7 +30,7 @@
       "wrong_extension_action":"點擊此處",
       "about":"iChrome是關於分頁與小工具",
       "about_desc":"分頁是由小工具構成，顯示像是天氣、新聞和您的電子郵件。你可以客製化大部分的小工具，並且如果您想要，你可以添加更多。",
-      "terms":"注意：若繼續，您將同意 iChrome 的 <a href=\"https:\/\/ichro.me\/tos\" target=\"_blank\">使用條款<\/a> 和 <a href=\"https:\/\/ichro.me\/privacy\" target=\"_blank\">隱私權政策<\/a>",
+      "terms":"注意：若繼續，您將同意 iChrome 的 <a href=\"https://ichro.me/tos\" target=\"_blank\">使用條款</a> 和 <a href=\"https://ichro.me/privacy\" target=\"_blank\">隱私權政策</a>",
       "sign_in":"以Google帳號登入",
       "sign_in_desc":"在開始之前請登入你的 Google 帳號以便安全地將你的更懂保存在線上",
       "sign_in_desc2":"你可以保持不登入，但你的頁面將不會被儲存在線上而且你也不能從別臺電腦上存取。",
@@ -36,15 +42,15 @@
     },
     "widgets":{
       "configure":"點此設定小部件",
-      "configure_desc":"點擊扳手打開天氣 Widget 的<b>設定<\/b>",
+      "configure_desc":"點擊扳手打開天氣 Widget 的<b>設定</b>",
       "configure_skip":"跳過",
-      "settings":"把<b>San Fancisco, CA<\/b>替換成你所在的位置，然後按一下<b>保存<\/b>",
-      "move":"你可以按著標註的位置 <b>拖動<\/b> 小部件視窗來移動它們。",
-      "remove":"當拖動一個小部件時，可把它拖放在的紅色欄 (目前未顯示)來 <b>刪除<\/b> 它。",
+      "settings":"把<b>San Fancisco, CA</b>替換成你所在的位置，然後按一下<b>保存</b>",
+      "move":"你可以按著標註的位置 <b>拖動</b> 小部件視窗來移動它們。",
+      "remove":"當拖動一個小部件時，可把它拖放在的紅色欄 (目前未顯示)來 <b>刪除</b> 它。",
       "done":"我知道了"
     },
     "settings":{
-      "intro":"接著讓我們看看 <b>功能表<\/b>，並且了解它能為你做什麼。",
+      "intro":"接著讓我們看看 <b>功能表</b>，並且了解它能為你做什麼。",
       "instructions":"點擊被標註的圖片以開啟它",
       "skip":"跳過",
       "tooltips":{
@@ -56,7 +62,7 @@
         "support":"發送給我們訊息或是在這裡留下回覆"
       },
       "finished":"輕鬆、簡單！",
-      "finished_next":"選擇功能表中的一個功能 (可試著從 <b>小部件<\/b> 開始) 並開始設置您的頁面！",
+      "finished_next":"選擇功能表中的一個功能 (可試著從 <b>小部件</b> 開始) 並開始設置您的頁面！",
       "finished_contact":"若您需要任何説明可以使用支援連結，我們會儘快給你回覆。"
     }
   },
@@ -77,6 +83,10 @@
   "toolbar":{
     "placeholder":"輸入並搜尋",
     "placeholder_ok":"輸入並搜尋或說“OK, Google\"...",
+    "suggestions":{
+      "url_subtext":"訪問網址",
+      "capture_notice":"iChrome將取代您地址欄的搜尋功能，您可隨時在設定中禁用此設置。"
+    },
     "apps":{
       "search":"搜尋",
       "youtube":"YouTube",
@@ -109,7 +119,7 @@
   "voice":{
     "listening":"正在聆聽...",
     "searching":"檢索：%s",
-    "missed":"抱歉，沒有聽到。<a>再試一次<\/a>"
+    "missed":"抱歉，沒有聽到。<a>再試一次</a>"
   },
   "settings":{
     "title":"設定",
@@ -120,7 +130,8 @@
       "visual_sections":{
         "background":"背景",
         "layout":"配罝",
-        "theme":"App主題"
+        "theme":"App主題",
+        "ad_placement":"Ad placement"
       },
       "toolbar":"工具列",
       "toolbar_sections":{
@@ -130,6 +141,7 @@
       },
       "tabs":"分頁",
       "widgets":"小工具",
+      "ads":"Ads",
       "pro":"Pro",
       "accounts":"賬號",
       "misc":"雜項",
@@ -150,7 +162,7 @@
         "custom":"自訂",
         "unnamed":"主題 %s",
         "select":"選擇一個主題",
-        "or":"or",
+        "or":"或",
         "url_placeholder":"輸入圖片網址"
       },
       "layout":{
@@ -188,9 +200,10 @@
         "title":"搜尋",
         "desc":"這些設定控制著搜尋框與語音搜尋將如何運作",
         "engine":"搜尋引擎",
-        "engines_google":"Google (預設)",
+        "engines_default":"預設",
         "engines_custom":"自訂",
-        "engines_custom_desc":"輸入一個搜尋網址可用來接收查詢，替換<b>%s<\/b> 以自製查詢要求",
+        "engines_custom_desc":"輸入一個搜尋網址可用來接收查詢，替換<b>%s</b> 以自製查詢要求",
+        "omnibox_capture":"使用iChrome取代地址欄的搜尋功能",
         "voice":"啟用語音搜尋",
         "ok_google":"啟用 \"OK Google\" 指令偵測",
         "search_tab":"在新分頁中顯示搜尋結果"
@@ -203,7 +216,7 @@
         "custom_note1":"最多允許3個",
         "custom_note2":"使用者取得'8'",
         "custom_name_placeholder":"連結文字",
-        "custom_url_placeholder":"連結網址，例如：https:\/\/www.google.com\/"
+        "custom_url_placeholder":"連結網址，例如：https://www.google.com/"
       }
     },
     "misc":{
@@ -220,10 +233,10 @@
     "accounts":{
       "status":{
         "title":"狀態",
-        "signed_in":"您目前 <b>登入<\/b> 為 %s (%s)。",
+        "signed_in":"您目前 <b>登入</b> 為 %s (%s)。",
         "reset_account":"重設帳號",
         "sign_out":"登出",
-        "signed_out":"您目前<b>尚未登入<\/b>。請登入您的 Google 帳戶來安全的存儲並同步您的設定。",
+        "signed_out":"您目前<b>尚未登入</b>。請登入您的 Google 帳戶來安全的存儲並同步您的設定。",
         "sign_in":"使用Google登入"
       },
       "reset_confirm_desc":"此行為將清除所有線下與同步資料，此行為將不留任何備份並且無法撤消。",
@@ -244,12 +257,12 @@
       },
       "css":{
         "title":"自訂 CSS",
-        "desc":"您可以使用 CSS語法 (<a href=\"HTTPs:\/\/developer.mozilla.org\/en-US\/docs\/Web\/CSS\"target=\"blank\"> 定義<\/a>) 來自訂幾乎任何部分的 iChrome。",
+        "desc":"您可以使用 CSS語法 (<a href=\"HTTPs://developer.mozilla.org/en-US/docs/Web/CSS\"target=\"blank\"> 定義</a>) 來自訂幾乎任何部分的 iChrome。",
         "placeholder":"在此可輸入最高1000字元的CSS語法"
       },
       "debug_tools":{
         "title":"檢錯工具",
-        "desc":"<b>警告:<\/b>這些工具能夠在一個點下就移除整個配置。請在有開發人員指示下才只使用它們。",
+        "desc":"<b>警告:</b>這些工具能夠在一個點下就移除整個配置。請在有開發人員指示下才只使用它們。",
         "open":"打開測試工具"
       }
     },
@@ -282,6 +295,7 @@
         "bg_downloads":"可下載的背景",
         "weather":"每小時的天氣預測將可達 10 天以上",
         "toolbar":"更多工具列連結",
+        "ads":"A completely ad-free experience",
         "support":"優先的需求或建議",
         "buy_pro":"購買Pro"
       },
@@ -316,7 +330,7 @@
           "education":"教育",
           "custom":"自訂"
         },
-        "uneditable_desc":"商業，教育和自訂的方案無法從 iChrome內部更新。請 <a href=\"mailto:support@ichro.me\"> 聯繫我們<\/a> 來更新或取消您的訂閱。",
+        "uneditable_desc":"商業，教育和自訂的方案無法從 iChrome內部更新。請 <a href=\"mailto:support@ichro.me\"> 聯繫我們</a> 來更新或取消您的訂閱。",
         "status":"狀態",
         "status_active":"啟動",
         "status_trial":"試用",
@@ -330,6 +344,24 @@
         "cancel":"取消訂閱",
         "cancel_notice":"您的訂閱將會立刻取消",
         "cancel_notice2":"若您想要退款，請寄信到support@ichro.me來聯絡我們"
+      }
+    },
+    "ads":{
+      "text1":"iChrome displays a few small ads to pay for server, support and development costs. With these ads, we can afford to offer iChrome free to everyone.",
+      "text2":"Here you can choose where those ads are shown, or buy ad-free to permanently remove them.",
+      "text3":"Ad-free is a one-time purchase that permanently removes ads from iChrome wherever you're signed in. You can also upgrade to Pro for extra features in addition to an ad-free experience.",
+      "upgrade_btn":"Upgrade to ad-free",
+      "already_upgraded":"It looks like you've already upgraded to ad-free",
+      "signin":"登入",
+      "signin_desc":"Sign in before upgrading so we can link your purchase to your account",
+      "signin_btn":"登入",
+      "thank_you":"Thank you for upgrading to ad-free!",
+      "placement":{
+        "title":"Ad placement",
+        "left":"In the leftmost column",
+        "right":"In the rightmost column",
+        "top":"Above the tab",
+        "bottom":"Floating at the bottom"
       }
     }
   },
@@ -385,7 +417,7 @@
           "hide":"隱藏"
         },
         "account":"帳號",
-        "account_help":"如果你已經登錄到多個帳戶，這裡是用來設定\"authuser =\"值。\n<br \/><br \/>\n舉例，如果你已經登錄到兩個帳戶、 jsmith1@gmail.com 和  jsmith2@gmail.com，jsmith2@gmail.com 的\"authuser\"值會是 1 ，因為它是您已經登錄的第二個帳戶（從零開始計算）。",
+        "account_help":"如果你已經登錄到多個帳戶，這裡是用來設定\"authuser =\"值。\n<br /><br />\n舉例，如果你已經登錄到兩個帳戶、 jsmith1@gmail.com 和  jsmith2@gmail.com，jsmith2@gmail.com 的\"authuser\"值會是 1 ，因為它是您已經登錄的第二個帳戶（從零開始計算）。",
         "account_placeholder":"你的\"authuser =\"值",
         "on":"開啟",
         "off":"關閉"
@@ -397,7 +429,7 @@
     "all":"全部",
     "custom":"自訂",
     "create":"建立新的主題",
-    "url_or_upload":"or",
+    "url_or_upload":"或",
     "upload_image":"上傳圖像",
     "edit_btn":"編輯",
     "delete":"刪除",
@@ -419,7 +451,7 @@
     "feed_fetching":"我們正在讀取摘要，請耐心等候。",
     "feed_error":"在嘗試刷新源時出錯，請稍後重試。",
     "caching":"請稍候，正在緩存主題中...",
-    "cache_status":"緩存了 %s \/ %s 張圖像",
+    "cache_status":"緩存了 %s / %s 張圖像",
     "cache_error":"快取主題內容時出錯。請稍後再試。",
     "bginfo":{
       "view":"檢視",
@@ -434,9 +466,9 @@
       "name":"主題名稱",
       "default_name":"新增主題",
       "name_placeholder":"請輸入主題名稱",
-      "image":"圖像 URL",
-      "image_placeholder":"輸入背景圖像的 URL",
-      "image_help":"上載了的圖像在電腦之間 <b>無法同步<\/b> <br \/> <br \/> 如果這對你很重要，請將您的圖像上載到 <a href=\"HTTP:\/\/imgur.com\/\"target=\"_blank\"> imgur<\/a> 類似的服務。然後複製和貼上含有副檔名 (即.jpg) 的 URL 到左側欄內。",
+      "image":"圖像網址",
+      "image_placeholder":"輸入背景圖像的網址",
+      "image_help":"上載了的圖像在電腦之間 <b>無法同步</b> <br /> <br /> 如果這對你很重要，請將您的圖像上載到 <a href=\"HTTP://imgur.com/\"target=\"_blank\"> imgur</a> 類似的服務。然後複製和貼上含有副檔名 (即.jpg) 的網址到左側欄內。",
       "color":"背景顏色",
       "color_placeholder":"輸入顏色名稱",
       "position":"位置",

@@ -1,7 +1,7 @@
 define(["lodash", "jquery", "widgets/model"], function(_, $, WidgetModel) {
 	return WidgetModel.extend({
 		defaults: {
-			data: {
+			syncData: {
 				from: "USD",
 				to: "EUR",
 				recentFrom: ["USD"],
@@ -9,7 +9,15 @@ define(["lodash", "jquery", "widgets/model"], function(_, $, WidgetModel) {
 			}
 		},
 
-		_cache: {},
+		rates: null,
+
+		initialize: function() {
+			if (typeof this.data === "object" && this.data.from) {
+				this.set("syncData", this.data);
+
+				this.unset("data");
+			}
+		},
 
 		getConversion: function(value, from, to, cb, ctx) {
 			ctx = ctx || this;
@@ -18,16 +26,15 @@ define(["lodash", "jquery", "widgets/model"], function(_, $, WidgetModel) {
 				return cb.call(ctx, value * 1);
 			}
 
-
-			if (this._cache[from + "-" + to] || this._cache[to + "-" + from]) {
-				cb.call(ctx, this._cache[from + "-" + to] ? value * this._cache[from + "-" + to] : value / this._cache[to + "-" + from]);
+			if (this.rates) {
+				cb.call(ctx, Math.round((value / this.rates[from]) * this.rates[to] * 10000) / 10000);
 			}
 			else {
-				$.getJSON("https://rate-exchange.herokuapp.com/fetchRate?from=" + from + "&to=" + to, function(d) {
-					if (d && d.From === from && d.To === to && d.Rate) {
-						this._cache[from + "-" + to] = parseFloat(d.Rate);
+				$.getJSON("https://api.ichro.me/currency/v1/rates", function(d) {
+					if (d) {
+						this.rates = d;
 
-						cb.call(ctx, value * this._cache[from + "-" + to]);
+						cb.call(ctx, Math.round((value / this.rates[from]) * this.rates[to] * 10000) / 10000);
 					}
 				}.bind(this));
 			}

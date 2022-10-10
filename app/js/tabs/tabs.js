@@ -2,8 +2,8 @@
  * The tabs container-model.
  */
 define(
-	["lodash", "jquery", "backbone", "browser/api", "storage/storage", "storage/defaults", "core/status", "core/analytics", "tabs/collection", "i18n/i18n"],
-	function(_, $, Backbone, Browser, Storage, Defaults, Status, Track, Tabs, Translate) {
+	["lodash", "jquery", "backbone", "browser/api", "storage/storage", "storage/defaults", "core/status", "modals/alert", "core/analytics", "tabs/collection", "i18n/i18n", "settings/proxy"],
+	function(_, $, Backbone, Browser, Storage, Defaults, Status, Alert, Track, Tabs, Translate, SettingsProxy) {
 		var Model = Backbone.Model.extend({
 				initialize: function() {
 					this.tabs = new Tabs();
@@ -13,6 +13,7 @@ define(
 					Storage.on("done updated", function(storage, promise, data) {
 						if (!(data && data.tabSort)) {
 							var defaults = _.assign({}, Defaults.tab, {
+								adPlacement: storage.settings.adPlacement,
 								isGrid: storage.settings.layout === "grid",
 								fixed: storage.settings.columnWidth === "fixed"
 							});
@@ -83,6 +84,48 @@ define(
 					},
 					"mouseout .tab-nav button": function() {
 						clearTimeout(this.timeout);
+					},
+
+					"click .ad-unit button.hide-ad": function() {
+						Alert({
+							contents: [Translate("hide_ad.content")],
+							buttons: {
+								negative: Translate("hide_ad.upgrade"),
+								positive: Translate("hide_ad.hide")
+							}
+						}, function(hide) {
+							if (hide) {
+								var elm = document.createElement("style");
+
+								elm.innerHTML = ".ad-unit { display: none; }";
+
+								this.$el.before(elm);
+							}
+							else {
+								SettingsProxy("ads");
+							}
+						}.bind(this));
+					},
+
+					"click .upgrade-to-pro": function(e) {
+						var titleVar = $(e.currentTarget).data('title');
+						if (titleVar === null) { titleVar = "title-default"; }
+						var title = Translate("upgrade_to_pro." + titleVar);
+
+						Alert({
+							title: title,
+							contents: [Translate("upgrade_to_pro.content-default")],
+							buttons: {
+							negative: Translate("upgrade_to_pro.upgrade"),
+								positive: Translate("upgrade_to_pro.close")
+							}
+						}, function(close) {
+							if (close) {
+							}
+							else {
+								SettingsProxy("pro");
+							}
+						}.bind(this));
 					}
 				},
 
@@ -93,6 +136,48 @@ define(
 				initialize: function(options, navigate) {
 					// Sortable must be initialized before the model tries to create the tabs
 					this.sortable();
+
+					$(document).bind("deletewidget", function(e, widgetDiv) {
+						var item = $(widgetDiv);
+
+						if (!item.hasClass('widget')) {
+							return;
+						}
+
+						if (confirm(Translate("widgets.delete_confirm"))) {
+							item.remove();
+
+							item.removed = true;
+
+							Track.FB.logEvent("WidgetUninstall", null, { fb_content_id: item.attr("data-name") });
+
+							Track.event("Widgets", "Uninstall", item.attr("data-name"));
+
+							this.serialize(true);
+						}
+					}.bind(this));
+
+					// Listen for ad unit messages
+					window.addEventListener("message", function(e) {
+						if (e.origin === "http://localhost:4000" || e.origin === "https://ichro.me" || e.origin === "http://ichro.me") {
+							var d = {};
+
+							try {
+								d = JSON.parse(e.data);
+							}
+							catch (err) {}
+
+							if (d && d.hideAd) {
+								this.$el.find("#" + d.hideAd).remove();
+							}
+							else if (d && d.showAdsScreen) {
+								SettingsProxy("ads");
+							}
+							else if (d && d.showProScreen) {
+								SettingsProxy("pro");
+							}
+						}
+					}.bind(this), false);
 
 					this.model = new Model();
 
@@ -192,6 +277,8 @@ define(
 									item.removed = true;
 
 									if (!item.installing) {
+										Track.FB.logEvent("WidgetUninstall", null, { fb_content_id: item.attr("data-name") });
+
 										Track.event("Widgets", "Uninstall", item.attr("data-name"));
 									}
 								}
@@ -245,6 +332,8 @@ define(
 								view.refresh();
 
 								if (item.installing) {
+									Track.FB.logEvent("WidgetInstall", null, { widgetId: view.widget.name, size: view.model.get("size") });
+
 									Track.queue("widgets", "install", view.widget.name, view.model.get("size"));
 
 									Track.event("Widgets", "Install", view.widget.name);
@@ -305,6 +394,8 @@ define(
 							});
 						}
 					}
+
+					return elm;
 				},
 
 
@@ -345,6 +436,10 @@ define(
 						)
 						.toggleClass("one-tab", this.model.tabs.length === 1)
 						.append(_.pluck(this.model.tabs.views, "el"));
+
+					_.each(this.model.tabs.views, function(e) {
+						e.trigger("inserted");
+					});
 
 					return this;
 				}

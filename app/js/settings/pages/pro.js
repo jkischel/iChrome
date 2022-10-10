@@ -2,8 +2,8 @@
  * The Pro settings page
  */
 define([
-	"lodash", "moment", "core/auth", "modals/alert", "i18n/i18n", "storage/storage", "storage/syncapi", "settings/page", "core/uservoice", "settings/pro-checkout"
-], function(_, moment, Auth, Alert, Translate, Storage, SyncAPI, Page, UserVoice, Checkout) {
+	"lodash", "moment", "core/auth", "core/analytics", "modals/alert", "i18n/i18n", "storage/storage", "storage/syncapi", "settings/page", "core/uservoice", "settings/checkout"
+], function(_, moment, Auth, Track, Alert, Translate, Storage, SyncAPI, Page, UserVoice, Checkout) {
 	if (!Auth.isPro) {
 		var PromoView = Page.extend({
 			id: "pro",
@@ -11,6 +11,8 @@ define([
 
 			events: {
 				"click button.upgrade": function() {
+					Track.FB.logEvent("INITIATED_CHECKOUT", null, { fb_content_type: "pro" });
+
 					if (!Auth.isSignedIn) {
 						Alert({
 							confirm: true,
@@ -34,7 +36,7 @@ define([
 											location.reload();
 										}
 										else {
-											new Checkout();
+											new Checkout("pro");
 										}
 									});
 								});
@@ -44,7 +46,7 @@ define([
 						return;
 					}
 
-					new Checkout();
+					new Checkout("pro");
 				},
 
 				"click header .business a": function(e) {
@@ -56,14 +58,8 @@ define([
 
 			onInputChange: _.noop,
 
-			onBeforeRender: function(data) {
-				if (this._rendered) {
-					return false;
-				}
-
-				this._rendered = true;
-
-				return data;
+			onRender: function() {
+				Track.FB.logEvent("VIEWED_CONTENT", null, { fb_content_type: "page", fb_content_id: "pro" });
 			}
 		});
 
@@ -75,7 +71,7 @@ define([
 
 		events: {
 			"click section.plan button.update-plan, section.plan button.update-billing": function() {
-				new Checkout(true);
+				new Checkout("pro", true);
 			},
 
 			"click section.plan button.cancel": function() {
@@ -93,6 +89,8 @@ define([
 							if (!d || !d.authToken) {
 								return;
 							}
+
+							Track.FB.logEvent("CanceledPlan");
 
 							Auth.set("token", d.authToken);
 

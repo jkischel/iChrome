@@ -6,6 +6,7 @@ define(["jquery", "oauth", "browser/api"], function($, OAuth, Browser) {
 		id: 24,
 		size: 1,
 		order: 6,
+		unlisted: true,
 		interval: 300000,
 		nicename: "now",
 		sizes: ["variable"],
@@ -121,7 +122,7 @@ define(["jquery", "oauth", "browser/api"], function($, OAuth, Browser) {
 				name: "now",
 				id: key[0],
 				secret: key[1],
-				redirectURL: "http://ichro.me/auth/now",
+				redirectURL: "https://ichro.me/auth/now",
 				scope: "https://www.googleapis.com/auth/googlenow"
 			});
 		},

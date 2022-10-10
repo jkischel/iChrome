@@ -10,12 +10,12 @@ var templates = [
 		"whatsnew",				"bginfo",				"updated",
 		"widgets/auth-required","widgets/error",		"widgets/permissions-request",
 
-		"onboarding/modal",		"onboarding/widgets",	"onboarding/settings",
+		"onboarding/modal",		"onboarding/widgets",	"onboarding/settings", "onboarding/modalpro",
 
 		"settings",				"settings/accounts",	"settings/advanced",
 		"settings/misc",		"settings/tabs",		"settings/toolbar",
 		"settings/visual",		"settings/widgets",		"settings/pro",
-		"settings/debug",
+		"settings/debug",		"settings/ads",
 
 		"widgets.clock",				"widgets.clock.desc",
 		"widgets.calendar",				"widgets.calendar.desc",

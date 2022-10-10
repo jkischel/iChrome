@@ -10,6 +10,12 @@
     "me":"Mig"
   },
   "remove_widget":"Fjern",
+  "hide_banner":"Hide this banner",
+  "hide_ad":{
+    "content":"Would you like to hide ads until you use iChrome next, or upgrade to remove them permanently?",
+    "upgrade":"Upgrade",
+    "hide":"Hide ads"
+  },
   "alert":{
     "default_button":"Slet",
     "confirm_title":"Er du sikker på du vil gøre dette?",
@@ -24,7 +30,7 @@
       "wrong_extension_action":"Klik her",
       "about":"iChrome er lutter faner og widgets",
       "about_desc":"Faner er sider fyldt med widgets - blokke, der viser ting som vejret, nyheder og din e-mail. Du kan tilpasse de fleste widgets og tilføje så mange som du ønsker.",
-      "terms":"Bemærk: Hvis du fortsætter, accepterer du iChrome's <a href=\"https:\/\/ichro.me\/tos\" target=\"_blank\">Terms<\/a> and <a href=\"https:\/\/ichro.me\/privacy\" target=\"_blank\">Privat Politik<\/a>",
+      "terms":"Bemærk: Hvis du fortsætter, accepterer du iChrome's <a href=\"https://ichro.me/tos\" target=\"_blank\">Terms</a> and <a href=\"https://ichro.me/privacy\" target=\"_blank\">Privat Politik</a>",
       "sign_in":"Log ind med din Google-konto",
       "sign_in_desc":"Log ind med din Google konto før du starter, så du kan gemme dine ændringer online.",
       "sign_in_desc2":"Du kan forblive logget ud, hvis du ønsker det, men din side vil ikke blive gemt online og du vil ikke kunne tilgå din side fra andre computere.",
@@ -36,15 +42,15 @@
     },
     "widgets":{
       "configure":"Lad os konfigurere en widget.",
-      "configure_desc":"Klik på skruenøglen for at åbne vejr-widgets <b>Indstillinger<\/b>.",
+      "configure_desc":"Klik på skruenøglen for at åbne vejr-widgets <b>Indstillinger</b>.",
       "configure_skip":"Spring over",
-      "settings":"Erstat <b>San Francisco, CA<\/b> med din placering, tryk derefter på <b>Gem<\/b>.",
-      "move":"Du kan <b>trække<\/b> widgets ved at bruge det fremhævede håndtag til at flytte dem.",
-      "remove":"Når du trækker en widget, slip den på den røde bjælke (ikke vist) for at <b>fjerne<\/b> den.",
+      "settings":"Erstat <b>San Francisco, CA</b> med din placering, tryk derefter på <b>Gem</b>.",
+      "move":"Du kan <b>trække</b> widgets ved at bruge det fremhævede håndtag til at flytte dem.",
+      "remove":"Når du trækker en widget, slip den på den røde bjælke (ikke vist) for at <b>fjerne</b> den.",
       "done":"Forstået"
     },
     "settings":{
-      "intro":"Lad os tage et kig på <b>menu'en<\/b> og se, hvad du ellers kan gøre.",
+      "intro":"Lad os tage et kig på <b>menu'en</b> og se, hvad du ellers kan gøre.",
       "instructions":"Klik på det markerede billede for at åbne det.",
       "skip":"Spring over",
       "tooltips":{
@@ -56,7 +62,7 @@
         "support":"Send os en besked eller skriv en anmeldelse her"
       },
       "finished":"Sådan!",
-      "finished_next":"Vælg en indstilling i menuen (Begynd med <b>Widgets<\/b>) og opret din side!",
+      "finished_next":"Vælg en indstilling i menuen (Begynd med <b>Widgets</b>) og opret din side!",
       "finished_contact":"Brug linket support, hvis du har brug for hjælp, og vi vil vende tilbage til dig hurtigst."
     }
   },
@@ -77,6 +83,10 @@
   "toolbar":{
     "placeholder":"Indtast dine betingelser",
     "placeholder_ok":"Indtast dine betingelser eller sig \"OK, Google\"",
+    "suggestions":{
+      "url_subtext":"Visit URL",
+      "capture_notice":"iChrome handles searches you normally make from the Omnibox. You can disable this at any time from the settings"
+    },
     "apps":{
       "search":"Søg",
       "youtube":"Youtube",
@@ -109,7 +119,7 @@
   "voice":{
     "listening":"Lytter...",
     "searching":"Søger: %s",
-    "missed":"Dette blev ikke forstået. <a>Prøv igen<\/a>"
+    "missed":"Dette blev ikke forstået. <a>Prøv igen</a>"
   },
   "settings":{
     "title":"Indstillinger",
@@ -120,7 +130,8 @@
       "visual_sections":{
         "background":"Baggrund",
         "layout":"Opsætning",
-        "theme":"App tema"
+        "theme":"App tema",
+        "ad_placement":"Ad placement"
       },
       "toolbar":"Værktøjsbjælke",
       "toolbar_sections":{
@@ -130,6 +141,7 @@
       },
       "tabs":"Faner",
       "widgets":"Widgets",
+      "ads":"Ads",
       "pro":"Pro",
       "accounts":"Konto",
       "misc":"Diverse",
@@ -145,7 +157,7 @@
     "visual":{
       "background":{
         "title":"Baggrund",
-        "desc":"Dette\/disse billeder vises som baggrund for din faneblade",
+        "desc":"Dette/disse billeder vises som baggrund for din faneblade",
         "current":"Aktuelle baggrund",
         "custom":"Egen",
         "unnamed":"Tema %s",
@@ -188,9 +200,10 @@
         "title":"Søg",
         "desc":"Disse indstillinger kontrollerer hvordan søgeboks og stemmesøgning fungerer",
         "engine":"Søgemaskine",
-        "engines_google":"Google (standard)",
+        "engines_default":"Default",
         "engines_custom":"Brugerdefineret",
-        "engines_custom_desc":"Enter a URL that queries should be sent to, with <b>%s<\/b> where the query should go.",
+        "engines_custom_desc":"Enter a URL that queries should be sent to, with <b>%s</b> where the query should go.",
+        "omnibox_capture":"Handle searches normally made in the Omnibox",
         "voice":"Aktiver stemmesøgning",
         "ok_google":"Aktiver \"OK Google\" nøgleord detektion",
         "search_tab":"Åben søgeresultater i en ny fane"
@@ -203,7 +216,7 @@
         "custom_note1":"Maksimum 3 er tilladt",
         "custom_note2":"brugere får 8",
         "custom_name_placeholder":"Link tekst",
-        "custom_url_placeholder":"Link webadresse, for eksempel https:\/\/www.google.com"
+        "custom_url_placeholder":"Link webadresse, for eksempel https://www.google.com"
       }
     },
     "misc":{
@@ -220,10 +233,10 @@
     "accounts":{
       "status":{
         "title":"Status",
-        "signed_in":"Du er i øjeblikket <b>logget ind<\/b> som %s (%s).",
+        "signed_in":"Du er i øjeblikket <b>logget ind</b> som %s (%s).",
         "reset_account":"Nulstil konto",
         "sign_out":"Log ud",
-        "signed_out":"Du er <b>ikke i øjeblikket logget ind<\/b>. Log ind med din Google konto nu, for sikkert at gemme og synkronisere dine indstillinger.",
+        "signed_out":"Du er <b>ikke i øjeblikket logget ind</b>. Log ind med din Google konto nu, for sikkert at gemme og synkronisere dine indstillinger.",
         "sign_in":"Log ind med Google"
       },
       "reset_confirm_desc":"Dette vil slette alle lokale indstillinger og synkroniserede data. Der laves ikke backup og du kan ikke fortryde handlingen.",
@@ -244,12 +257,12 @@
       },
       "css":{
         "title":"Custom CSS",
-        "desc":"You can use CSS (<a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/CSS\" target=\"blank\">definition<\/a>) to customize almost any part of iChrome.",
+        "desc":"You can use CSS (<a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS\" target=\"blank\">definition</a>) to customize almost any part of iChrome.",
         "placeholder":"Indtast op til 1000 tegn i CSS her"
       },
       "debug_tools":{
         "title":"Fejlfindingsværktøj",
-        "desc":"<b>WARNING:<\/b> These tools can erase your entire configuration in a single click. Only use them if your developer instructs you to.",
+        "desc":"<b>WARNING:</b> These tools can erase your entire configuration in a single click. Only use them if your developer instructs you to.",
         "open":"Åben værktøjer"
       }
     },
@@ -282,6 +295,7 @@
         "bg_downloads":"Baggrunde kan downloades",
         "weather":"Time for time vejrudsigter op til 10 dage frem",
         "toolbar":"Flere værktøjslinje-links",
+        "ads":"A completely ad-free experience",
         "support":"Prioriteret hjælp og forslag",
         "buy_pro":"Køb Pro"
       },
@@ -316,7 +330,7 @@
           "education":"Uddannelse",
           "custom":"Brugerdefineret"
         },
-        "uneditable_desc":"Erhverv, uddannelse og brugerdefinerede planer kan ikke opdateres indefra iChrome. Venligst <a href=\"mailto:support@ichro.me\">kontakt os<\/a> for at opdatere eller annullere dit abonnement.",
+        "uneditable_desc":"Erhverv, uddannelse og brugerdefinerede planer kan ikke opdateres indefra iChrome. Venligst <a href=\"mailto:support@ichro.me\">kontakt os</a> for at opdatere eller annullere dit abonnement.",
         "status":"Status",
         "status_active":"Aktiv",
         "status_trial":"Prøveversion",
@@ -330,6 +344,24 @@
         "cancel":"Afmeld abonnement",
         "cancel_notice":"Dit abonnement vil blive annulleret øjeblikkeligt",
         "cancel_notice2":"Ønsker du refusion, venligst kontakt os på support@ichro.me"
+      }
+    },
+    "ads":{
+      "text1":"iChrome displays a few small ads to pay for server, support and development costs. With these ads, we can afford to offer iChrome free to everyone.",
+      "text2":"Here you can choose where those ads are shown, or buy ad-free to permanently remove them.",
+      "text3":"Ad-free is a one-time purchase that permanently removes ads from iChrome wherever you're signed in. You can also upgrade to Pro for extra features in addition to an ad-free experience.",
+      "upgrade_btn":"Upgrade to ad-free",
+      "already_upgraded":"It looks like you've already upgraded to ad-free",
+      "signin":"Sign in",
+      "signin_desc":"Sign in before upgrading so we can link your purchase to your account",
+      "signin_btn":"Sign in",
+      "thank_you":"Thank you for upgrading to ad-free!",
+      "placement":{
+        "title":"Ad placement",
+        "left":"In the leftmost column",
+        "right":"In the rightmost column",
+        "top":"Above the tab",
+        "bottom":"Floating at the bottom"
       }
     }
   },
@@ -385,7 +417,7 @@
           "hide":"Skjul"
         },
         "account":"Konto ID",
-        "account_help":"If you're signed into multiple accounts, this is the \"authuser=\" value.\n<br \/><br \/>\nFor example, if you're signed into two accounts, jsmith1@gmail.com and jsmith2@gmail.com, the \"authuser\" value for jsmith2@gmail.com would be 1 since it's the second account (counting from zero) that you're signed into.",
+        "account_help":"If you're signed into multiple accounts, this is the \"authuser=\" value.\n<br /><br />\nFor example, if you're signed into two accounts, jsmith1@gmail.com and jsmith2@gmail.com, the \"authuser\" value for jsmith2@gmail.com would be 1 since it's the second account (counting from zero) that you're signed into.",
         "account_placeholder":"Your \"authuser=\" value",
         "on":"Aktiv",
         "off":"Slået fra"
@@ -436,7 +468,7 @@
       "name_placeholder":"Enter a theme name",
       "image":"Image URL",
       "image_placeholder":"Enter a background image URL",
-      "image_help":"Uploaded images <b>cannot be synced<\/b> between computers.<br \/><br \/>If this is important to you, please upload your image to a service such as <a href=\"http:\/\/imgur.com\/\" target=\"_blank\">imgur<\/a>. Then copy and paste the URL ending with an extension (i.e. .jpg) and paste it into the field on the left.",
+      "image_help":"Uploaded images <b>cannot be synced</b> between computers.<br /><br />If this is important to you, please upload your image to a service such as <a href=\"http://imgur.com/\" target=\"_blank\">imgur</a>. Then copy the URL ending with an extension (i.e. .jpg) and paste it into the field on the left.",
       "color":"Fallback Color",
       "color_placeholder":"Enter any color name",
       "position":"Position",

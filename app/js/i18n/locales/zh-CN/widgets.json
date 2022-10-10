@@ -2,12 +2,12 @@
   "lang_code":"zh-CN-widgets",
   "apps":{
     "name":"应用程序",
-    "desc":"显示您当前安装的谷歌 chrome 浏览器应用程序。",
+    "desc":"显示您当前安装的谷歌Chrome浏览器应用程序。",
     "settings":{
       "format":"小部件格式",
       "format_options":{
-        "tiles":"方块式",
-        "list":"列表"
+        "tiles":"磁贴式",
+        "list":"列表式"
       },
       "display":"显示",
       "display_options":{
@@ -21,13 +21,13 @@
         "offline":"脱机启用",
         "available":"可用性"
       },
-      "open":"应用打开方式"
+      "open":"在...中打开应用"
     },
     "store_app":"Store"
   },
   "bookmarks":{
-    "name":"书签",
-    "desc":"显示并定制您的收藏夹和其他链接。",
+    "name":"收藏夹",
+    "desc":"显示您可随意定制的收藏夹和其他链接。",
     "settings":{
       "title_placeholder":"输入小部件标题",
       "layout":"布局",
@@ -42,7 +42,7 @@
       "title":"书签名",
       "title_placeholder":"谷歌（Google）",
       "url":"添加链接",
-      "url_placeholder":"http:\/\/www.google.com\/",
+      "url_placeholder":"http://www.google.com/",
       "save":"保存"
     },
     "new_caption":"新建",
@@ -55,7 +55,7 @@
     "desc":"显示您的Chrome标签页，并可指定只显示某个文件夹。",
     "settings":{
       "title_placeholder":"输入小部件标题",
-      "from":"从...显示书签",
+      "from":"收藏夹位置",
       "open":"在...中打开书签"
     }
   },
@@ -89,13 +89,13 @@
       "timezone_local":"本地",
       "format":"时钟格式",
       "format_options":{
-        "ampm":"AM\/PM - 数字",
+        "ampm":"AM/PM-数字",
         "24hour":"24 小时-数字",
         "analog":"12 小时-模拟",
-        "ampmseconds":"AM\/PM-数字（无“秒”）",
+        "ampmseconds":"AM/PM-数字（无“秒”）",
         "24hourseconds":"24 小时-数字（无“秒”）"
       },
-      "sound":"提醒声音"
+      "sound":"提示声"
     },
     "title":"时钟",
     "alarm":"闹钟",
@@ -105,7 +105,7 @@
     "set":"设定",
     "unset":"取消设置",
     "dismiss":"忽略",
-    "enable_audio":"启用音效"
+    "enable_audio":"提示音"
   },
   "facebook":{
     "name":"Facebook",
@@ -184,7 +184,7 @@
     "desc":"显示Reddit上的热门话题",
     "settings":{
       "subreddit":"Reddit分类",
-      "subreddit_help":"输入在Reddit分类网页链接<b>\/r\/<\/b>后的字符。\n<br \/><br \/>\n例如，科技类的链接是<a href=\"http:\/\/www.reddit.com\/r\/technology\">http:\/\/www.reddit.com\/r\/technology<\/a>所以您需要输入<b>technology<\/b>",
+      "subreddit_help":"输入在Reddit分类网页链接<b>/r/</b>后的字符。\n<br /><br />\n例如，科技类的链接是<a href=\"http://www.reddit.com/r/technology\">http://www.reddit.com/r/technology</a>所以您需要输入<b>technology</b>",
       "subreddit_placeholder":"输入Reddit分类的显示链接。（例如technology）",
       "sort":"排序方式",
       "sort_options":{
@@ -205,9 +205,9 @@
     "more":"更多"
   },
   "tasks":{
-    "name":"任务栏",
-    "desc":"显示并可编辑您Google任务列表中的任务",
-    "title":"任务栏",
+    "name":"Google Tasks",
+    "desc":"显示并可编辑您Google任务列表中的待办事项",
+    "title":"Google Tasks",
     "settings":{
       "list":"列表"
     },
@@ -260,7 +260,7 @@
         "six":"六个小位置"
       },
       "from":"显示视频来源",
-      "from_help":"这必须是与您查看个人资料时<b>完全一致<\/b>的用户名。\n<br \/><br \/>\n此值永远不会包含空格。",
+      "from_help":"这必须是与您查看个人资料时<b>完全一致</b>的用户名。\n<br /><br />\n此值永远不会包含空格。",
       "from_placeholder":"为空则显示热门视频",
       "open":"搜索结果打开方式"
     },
@@ -268,17 +268,17 @@
     "num_views":"浏览次数"
   },
   "quotes":{
-    "name":"报价",
-    "desc":"在您加载加载页面时更新报价或每天只更新一次。",
+    "name":"语录",
+    "desc":"显示名人名言和经典语录，每天或每次加载页面时更新。",
     "settings":{
       "source":"来源",
-      "method":"加载新报价",
+      "method":"加载新语录",
       "method_options":{
         "daily":"每天一次",
         "random":"每次加载页面时"
       }
     },
-    "unknown_author":"未知"
+    "unknown_author":"无名"
   },
   "html":{
     "name":"HTML",
@@ -294,9 +294,9 @@
     "desc":"显示一个带有标题和缩略图（可选）的链接",
     "settings":{
       "link":"链接 URL：",
-      "link_placeholder":"http:\/\/www.google.com\/",
+      "link_placeholder":"http://www.google.com/",
       "image":"图像地址",
-      "image_placeholder":"http:\/\/www.example.com\/image.png",
+      "image_placeholder":"http://www.example.com/image.png",
       "color":"图像背景色",
       "style":"图像样式",
       "style_fill":"填充",
@@ -355,35 +355,35 @@
   },
   "pocket":{
     "name":"Pocket",
-    "desc":"在口袋中显示您保存的文章，视频及网页的列表",
+    "desc":"显示您在Pocket中保存的文章，视频及网页列表",
     "settings":{
       "links_shown":"显示链接数",
       "open":"打开链接",
-      "open_pocket":"在Pocket中",
-      "open_original":"在其原始地址"
+      "open_pocket":"打开Pocket",
+      "open_original":"打开原始地址"
     },
     "by":"作者",
     "no_links":"找不到链接",
     "grant_access":"授予访问权限",
-    "no_key":"要加载您的Pocket中的链接，请先授权iChrome访问您的Pocket账号。"
+    "no_key":"在加载您保存在Pocket中的链接前，请先授权iChrome访问您的Pocket账号。"
   },
   "analytics":{
     "name":"分析",
     "desc":"显示您谷歌分析中的各项指标",
     "sessions":"会话",
     "pageviews":"页面访问量",
-    "pagesvisit":"页\/访问",
+    "pagesvisit":"页/访问",
     "bouncerate":"回访率",
     "completions":"达成",
     "noprofile_title":"没有选定配置文件",
-    "noprofile":"看起来您未选择一个项目！\n<br \/><br \/>\n请尝试通过右上角的扳手图标选择一个项目。",
+    "noprofile":"看起来您未选择一个项目！\n<br /><br />\n请尝试通过右上角的扳手图标选择一个项目。",
     "settings":{
       "profile":"项目档案"
     }
   },
   "classroom":{
-    "name":"教室",
-    "desc":"更新您的谷歌教室的课程安排与课堂",
+    "name":"Google课堂",
+    "desc":"获取您Google课堂的课程安排和作业信息",
     "settings":{
       "mode":"小部件模式",
       "mode_teacher":"教师",
@@ -393,7 +393,6 @@
   "currency":{
     "name":"货币转换",
     "desc":"让您在169种货币之间进行转换。",
-    "to_label":"转换至",
     "recently_used":"最近使用"
   },
   "dictionary":{
@@ -425,9 +424,9 @@
     "desc":"在您选择的位置用 iframe 嵌入网页。",
     "settings":{
       "url":"框架链接",
-      "url_placeholder":"例如 http:\/\/www.google.com\/",
+      "url_placeholder":"例如 http://www.google.com/",
       "height":"框架高度",
-      "padding":"内边距"
+      "padding":"内边框"
     }
   },
   "keep":{
@@ -445,7 +444,7 @@
       "title_placeholder":"输入小部件窗口标题或留空隐藏",
       "articles":"显示数量",
       "edition":"国家版本",
-      "default_topic":"默认主题"
+      "default_topic":"默认栏目"
     }
   },
   "recentlyclosed":{
@@ -469,7 +468,7 @@
       "link_placeholder":"输入小部件标题链接",
       "feeds":"订阅源",
       "feeds_help":"单击任意feed以编辑",
-      "feeds_placeholder":"输入一个feed地址并按回车以添加feed",
+      "feeds_placeholder":"输入一个Feed地址并按回车键以添加",
       "feeds_pro_only":"只有专业版用户可在不同的小部件中使用多个源，您可以在设置中购买专业版。",
       "feed_name_placeholder":"源名称",
       "feed_url_placeholder":"源地址",
@@ -485,7 +484,7 @@
     "settings":{
       "page_title":"收藏夹",
       "save":"保存",
-      "teams_placeholder":"输入队伍的名称并按回车确认添加"
+      "teams_placeholder":"输入队伍的名称后按回车添加"
     },
     "favorites":"收藏夹",
     "top_games":"顶级联赛",
@@ -506,7 +505,7 @@
     "desc":"显示您指定的股票信息。",
     "settings":{
       "stocks":"股票",
-      "stocks_placeholder":"输入公司或股票名称并按回车添加"
+      "stocks_placeholder":"输入公司或股票名称后按回车添加"
     },
     "as_of":"在",
     "exchange_time":"交易时间",
@@ -533,7 +532,7 @@
     "avg_volume":"平均交易量",
     "shares":"股票",
     "cap":"市值",
-    "pe":"价格 \/ 收益",
+    "pe":"价格 / 收益",
     "eps":"每股收益",
     "beta":"测试版",
     "inst_own":"机构持股"
@@ -541,7 +540,7 @@
   "todo":{
     "name":"待办事项",
     "desc":"显示交互式的待办事项列表。",
-    "title":"待办事项列表",
+    "title":"待办事项",
     "settings":{
       "color":"字体颜色",
       "color_options":{
@@ -549,15 +548,15 @@
         "dark":"暗色调"
       },
       "tags":"标签",
-      "tags_placeholder":"输入标记的名称并按Enter键确认"
+      "tags_placeholder":"输入标签名称后按回车键确认"
     },
-    "add":"添加项",
+    "add":"添加",
     "none":"普通",
     "important":"重要"
   },
   "topsites":{
     "name":"常用网站",
-    "desc":"显示您经常访问\/常用的的网站。",
+    "desc":"显示您经常访问/常用的的网站。",
     "settings":{
       "show":"显示网站数目"
     }
@@ -579,19 +578,27 @@
       }
     },
     "to_home":"到家",
-    "to_work":"上班"
+    "to_work":"上班",
+    "hour":"%s小时",
+    "hours":"%s小时",
+    "hours_letter":"%s时",
+    "minute":"%s分钟",
+    "minutes":"%s分钟",
+    "minute_short":"%s分钟",
+    "minutes_short":"%s分钟",
+    "minutes_letter":"%s分"
   },
   "translate":{
     "name":"翻译",
     "desc":"快速翻译您所键入的内容（在90种语言中）",
-    "from_placeholder":"从这里开始输入",
+    "from_placeholder":"输入您要翻译的内容",
     "to_placeholder":"译文将显示在此处",
     "detect_lang":"检测语言",
     "translating":"正在翻译。。。",
     "unknown":"未知"
   },
   "unread":{
-    "name":"未读",
+    "name":"未读邮件",
     "desc":"显示您Gmail邮箱中的未读邮件数目。",
     "settings":{
       "open":"点击时打开"
@@ -614,19 +621,19 @@
     "desc":"显示当前天气和接下来的 4 天的天气预报。",
     "settings":{
       "location":"位置",
-      "location_placeholder":"请输入一个位置，然后按 enter 键",
+      "location_placeholder":"请输入您的位置，然后按回车键",
       "units":"单位",
-      "units_imperial":"公制（华氏度）",
-      "units_metric":"公制 (摄氏度)",
-      "enabled":"正在编辑",
-      "disabled":"不在编辑",
-      "forecast":"预测",
-      "hourly":"每小时预测"
+      "units_imperial":"英制（华氏度）",
+      "units_metric":"公制（摄氏度）",
+      "enabled":"开启",
+      "disabled":"关闭",
+      "forecast":"天气预报",
+      "hourly":"小时天气预报"
     },
     "more":"更多",
     "less":"收起",
-    "wind":"风速",
-    "precipitation":"降雨",
+    "wind":"风向",
+    "precipitation":"降雨量",
     "uv":"紫外线指数",
     "feelslike":"体感",
     "barometer":"晴雨表",

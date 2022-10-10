@@ -59,9 +59,11 @@ define(["i18n/i18n"], function(Translate) {
 			plus: true,
 			voice: true,
 			gmail: true,
-			toolbar: "full",
+			toolbar: "button",
+			captureFocus: true,
 			searchInNewTab: false,
-			searchURL: "https://google.com/search?q=%s",
+			searchEngine: "default",
+			adPlacement: "footer_leaderboard",
 
 			editing: true,
 			customCSS: "",

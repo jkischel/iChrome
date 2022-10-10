@@ -10,6 +10,12 @@
     "me":"Io"
   },
   "remove_widget":"Rimuovi",
+  "hide_banner":"Hide this banner",
+  "hide_ad":{
+    "content":"Would you like to hide ads until you use iChrome next, or upgrade to remove them permanently?",
+    "upgrade":"Upgrade",
+    "hide":"Hide ads"
+  },
   "alert":{
     "default_button":"Scarta",
     "confirm_title":"Sei sicuro di voler proseguire?",
@@ -24,7 +30,7 @@
       "wrong_extension_action":"Clicca qui",
       "about":"iChrome è fatto di tab e widget",
       "about_desc":"I Tab (o Schede) sono pagine contenenti widget - riquadri che mostrano cose come il meteo, le news e le tue email. Puoi personalizzare la maggior parte dei widget e aggiungerne quanti ne vuoi.",
-      "terms":"Nota: Procedendo, accetti le<a href=\"https:\/\/ichro.me\/tos\" target=\"_blank\">condizioni<\/a> e i<a href=\"https:\/\/ichro.me\/privacy\" target=\"_blank\">termini sulla privacy<\/a>",
+      "terms":"Nota: Procedendo, accetti le<a href=\"https://ichro.me/tos\" target=\"_blank\">condizioni</a> e i<a href=\"https://ichro.me/privacy\" target=\"_blank\">termini sulla privacy</a>",
       "sign_in":"Registrati con il tuo account Google",
       "sign_in_desc":"Accedi con il tuo account Google prima di cominciare per salvare in sicurezza le modifiche online.",
       "sign_in_desc2":"Puoi non essere loggato se vuoi, ma la pagina non verrá salvata online e tu non avrai la possibilitá di accedervi da altri computer.",
@@ -36,15 +42,15 @@
     },
     "widgets":{
       "configure":"Configuriamo un widget.",
-      "configure_desc":"Fare click sulla chiave per aprire <b>impostazioni<\/b> del widget meteo.",
+      "configure_desc":"Fare click sulla chiave per aprire <b>impostazioni</b> del widget meteo.",
       "configure_skip":"Salta",
-      "settings":"Sostituire <b>San Francisco, CA<\/b> con la vostra posizione, quindi premere <b>Salva<\/b>.",
-      "move":"È possibile <b>trascinare<\/b> i widget usando la maniglia evidenziata per spostarli.",
-      "remove":"Quando si trascina un widget, è necessario rilasciarlo sulla barra rossa (non mostrata) per <b>rimuoverlo<\/b>.",
+      "settings":"Sostituire <b>San Francisco, CA</b> con la vostra posizione, quindi premere <b>Salva</b>.",
+      "move":"È possibile <b>trascinare</b> i widget usando la maniglia evidenziata per spostarli.",
+      "remove":"Quando si trascina un widget, è necessario rilasciarlo sulla barra rossa (non mostrata) per <b>rimuoverlo</b>.",
       "done":"Ok"
     },
     "settings":{
-      "intro":"Ora diamo un'occhiata <b>al menu<\/b> e vediamo cos'altro si può fare.",
+      "intro":"Ora diamo un'occhiata <b>al menu</b> e vediamo cos'altro si può fare.",
       "instructions":"Clicca sull'immagine evidenziata per aprirla.",
       "skip":"Salta",
       "tooltips":{
@@ -56,7 +62,7 @@
         "support":"Inviaci un messaggio o lascia una recensione qui"
       },
       "finished":"Questo è tutto!",
-      "finished_next":"Scegli un'opzione dal menu (prova a partire con i <b>widget<\/b>) e imposta la tua pagina!",
+      "finished_next":"Scegli un'opzione dal menu (prova a partire con i <b>widget</b>) e imposta la tua pagina!",
       "finished_contact":"Utilizzare il link di supporto se hai bisogno di aiuto e ti risponderemo al più presto."
     }
   },
@@ -77,6 +83,10 @@
   "toolbar":{
     "placeholder":"Inserisci i termini della tua ricerca",
     "placeholder_ok":"Inserisci i termini della tua ricerca o pronuncia \"OK, Google\"",
+    "suggestions":{
+      "url_subtext":"Visit URL",
+      "capture_notice":"iChrome handles searches you normally make from the Omnibox. You can disable this at any time from the settings"
+    },
     "apps":{
       "search":"Cerca",
       "youtube":"YouTube",
@@ -109,7 +119,7 @@
   "voice":{
     "listening":"In ascolto...",
     "searching":"cercando per: %s",
-    "missed":"Non ho capito. <a>Prova ancora<\/a>"
+    "missed":"Non ho capito. <a>Prova ancora</a>"
   },
   "settings":{
     "title":"Impostazioni",
@@ -120,7 +130,8 @@
       "visual_sections":{
         "background":"Sfondo",
         "layout":"Aspetto",
-        "theme":"Tema dell'Applicazione"
+        "theme":"Tema dell'Applicazione",
+        "ad_placement":"Ad placement"
       },
       "toolbar":"Barra degli strumenti",
       "toolbar_sections":{
@@ -130,6 +141,7 @@
       },
       "tabs":"Schede",
       "widgets":"Widgets",
+      "ads":"Ads",
       "pro":"Pro",
       "accounts":"Profilo",
       "misc":"Varie",
@@ -188,9 +200,10 @@
         "title":"Cerca",
         "desc":"Queste impostazioni controllano il motore di ricerca e la voce funzione di ricerca",
         "engine":"Motori di Ricerca",
-        "engines_google":"Google (impostazione predefinita)",
+        "engines_default":"Default",
         "engines_custom":"personalizzato",
-        "engines_custom_desc":"Immettere un URL che devono essere inviate, con <b>%s<\/b> dove dovrebbe andare la query.",
+        "engines_custom_desc":"Immettere un URL che devono essere inviate, con <b>%s</b> dove dovrebbe andare la query.",
+        "omnibox_capture":"Handle searches normally made in the Omnibox",
         "voice":"Attivare la ricerca vocale",
         "ok_google":"Attiva il rilevamento della frase chiave \"OK Google\"",
         "search_tab":"Apri i risultati della ricerca in una nuova scheda"
@@ -203,7 +216,7 @@
         "custom_note1":"Massimo di 3 ammessi",
         "custom_note2":"gli utenti ottengono 8",
         "custom_name_placeholder":"Testo del link",
-        "custom_url_placeholder":"URL del link, es: http:\/\/www.google.com\/"
+        "custom_url_placeholder":"URL del link, es: http://www.google.com/"
       }
     },
     "misc":{
@@ -220,10 +233,10 @@
     "accounts":{
       "status":{
         "title":"Stato",
-        "signed_in":"Hai effettuato l'<b>accesso<\/b> come %s (%s).",
+        "signed_in":"Hai effettuato l'<b>accesso</b> come %s (%s).",
         "reset_account":"Ripristino account",
         "sign_out":"Esci",
-        "signed_out":"Al momento <b>non hai effettuato l'accesso<\/b>. Accedi con il tuo account Google per salvare e sincronizzare la tua configurazione.",
+        "signed_out":"Al momento <b>non hai effettuato l'accesso</b>. Accedi con il tuo account Google per salvare e sincronizzare la tua configurazione.",
         "sign_in":"Accedi con Google"
       },
       "reset_confirm_desc":"Questo cancellerà tutti i tuoi dati locali e sincronizzati, non c'è alcun backup e non potrai tornare indietro.",
@@ -244,12 +257,12 @@
       },
       "css":{
         "title":"Personalizza CSS",
-        "desc":"Puoi usare i CSS (<a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/CSS\" target=\"blank\">definizione<\/a>) per personalizzare quasi tutte le parti di iChrome.",
+        "desc":"Puoi usare i CSS (<a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS\" target=\"blank\">definizione</a>) per personalizzare quasi tutte le parti di iChrome.",
         "placeholder":"Inserire fino a 1000 caratteri CSS qui"
       },
       "debug_tools":{
         "title":"Strumenti di debug",
-        "desc":"<b>ATTENZIONE:<\/b>Questi strumenti possono eliminare completamente la tua configurazione in un singolo click. Utilizzali soltanto se guidato dal tuo sviluppatore.",
+        "desc":"<b>ATTENZIONE:</b>Questi strumenti possono eliminare completamente la tua configurazione in un singolo click. Utilizzali soltanto se guidato dal tuo sviluppatore.",
         "open":"Aprire gli strumenti"
       }
     },
@@ -282,6 +295,7 @@
         "bg_downloads":"Sfondi scaricabili",
         "weather":"Previsioni meteo orarie fino a 10 giorni",
         "toolbar":"Altri link per la barra degli strumenti",
+        "ads":"A completely ad-free experience",
         "support":"Priorità per supporto e suggerimenti",
         "buy_pro":"Acquista la versione Pro"
       },
@@ -316,7 +330,7 @@
           "education":"Educazione",
           "custom":"personalizzato"
         },
-        "uneditable_desc":"Business, education e piani personalizzati non possono essere aggiornati all'interno di hexitiChrome. Si prega di <a href=\"mailto:support@ichro.me\"> contattarci<\/a> per aggiornare o cancellare la tua iscrizione.",
+        "uneditable_desc":"Business, education e piani personalizzati non possono essere aggiornati all'interno di hexitiChrome. Si prega di <a href=\"mailto:support@ichro.me\"> contattarci</a> per aggiornare o cancellare la tua iscrizione.",
         "status":"Stato",
         "status_active":"Attivo",
         "status_trial":"Versione di prova",
@@ -330,6 +344,24 @@
         "cancel":"Annulla sottoscrizione",
         "cancel_notice":"L'abbonamento verrà annullato immediatamente",
         "cancel_notice2":"Se desideri un rimborso, ti preghiamo di contattarci a support@ichro.me"
+      }
+    },
+    "ads":{
+      "text1":"iChrome displays a few small ads to pay for server, support and development costs. With these ads, we can afford to offer iChrome free to everyone.",
+      "text2":"Here you can choose where those ads are shown, or buy ad-free to permanently remove them.",
+      "text3":"Ad-free is a one-time purchase that permanently removes ads from iChrome wherever you're signed in. You can also upgrade to Pro for extra features in addition to an ad-free experience.",
+      "upgrade_btn":"Upgrade to ad-free",
+      "already_upgraded":"It looks like you've already upgraded to ad-free",
+      "signin":"Registrati",
+      "signin_desc":"Sign in before upgrading so we can link your purchase to your account",
+      "signin_btn":"Registrati",
+      "thank_you":"Thank you for upgrading to ad-free!",
+      "placement":{
+        "title":"Ad placement",
+        "left":"In the leftmost column",
+        "right":"In the rightmost column",
+        "top":"Above the tab",
+        "bottom":"Floating at the bottom"
       }
     }
   },
@@ -385,7 +417,7 @@
           "hide":"Nascondi"
         },
         "account":"Account ID",
-        "account_help":"Se sei connesso con più account, questo è il valore di \"authuser=\".\n<br \/><br \/>\nPer esempio, se sei connesso con due account,  jsmith1@gmail.com  e jsmith2@gmail.com, il valore di \"authuser\" per jsmith2@gmail.com sarà 1 dato che è il secondo account (occorre contare partendo da zero) in cui sei connesso.",
+        "account_help":"Se sei connesso con più account, questo è il valore di \"authuser=\".\n<br /><br />\nPer esempio, se sei connesso con due account,  jsmith1@gmail.com  e jsmith2@gmail.com, il valore di \"authuser\" per jsmith2@gmail.com sarà 1 dato che è il secondo account (occorre contare partendo da zero) in cui sei connesso.",
         "account_placeholder":"Il tuo valore per \"authuser=\"",
         "on":"On",
         "off":"Off"
@@ -436,7 +468,7 @@
       "name_placeholder":"Inserisci il nome di un tema",
       "image":"URL dell'immagine",
       "image_placeholder":"Inserire l'URL dell'immagine di sfondo",
-      "image_help":"Le immagini caricate <b>non possono essere sincronizzate<\/b> tra computer.<br \/><br \/>Se per te questo è importate, si consiglia di caricare la tua immagine su un servizio di hosting immagini tipo <a href=\"http:\/\/imgur.com\/\" target=\"_blank\">imgur<\/a>. Dopo di che copia l'URL che finisce con un estensione (es: .jpg) ed incollalo nel campo a sinistra.",
+      "image_help":"Le immagini caricate <b>non possono essere sincronizzate</b> tra computer.<br /><br />Se per te questo è importate, si consiglia di caricare la tua immagine su un servizio di hosting immagini tipo <a href=\"http://imgur.com/\" target=\"_blank\">imgur</a>. Dopo di che copia l'URL che finisce con un estensione (es: .jpg) ed incollalo nel campo a sinistra.",
       "color":"Colore di riserva",
       "color_placeholder":"Inserisci il nome di colore",
       "position":"Posizione",

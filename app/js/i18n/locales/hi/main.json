@@ -10,6 +10,12 @@
     "me":"मैं"
   },
   "remove_widget":"हटाना",
+  "hide_banner":"Hide this banner",
+  "hide_ad":{
+    "content":"Would you like to hide ads until you use iChrome next, or upgrade to remove them permanently?",
+    "upgrade":"Upgrade",
+    "hide":"Hide ads"
+  },
   "alert":{
     "default_button":"Dismiss",
     "confirm_title":"Are you sure you want to do this?",
@@ -24,7 +30,7 @@
       "wrong_extension_action":"Click here",
       "about":"iChrome's all about tabs and widgets",
       "about_desc":"Tabs are pages filled with widgets - blocks that show things like the weather, news, and your email. You can customize most widgets and add as many as you want.",
-      "terms":"Note: By proceeding, you agree to iChrome's <a href=\"https:\/\/ichro.me\/tos\" target=\"_blank\">Terms<\/a> and <a href=\"https:\/\/ichro.me\/privacy\" target=\"_blank\">Privacy Policy<\/a>",
+      "terms":"Note: By proceeding, you agree to iChrome's <a href=\"https://ichro.me/tos\" target=\"_blank\">Terms</a> and <a href=\"https://ichro.me/privacy\" target=\"_blank\">Privacy Policy</a>",
       "sign_in":"Sign in with your Google account",
       "sign_in_desc":"Sign in with your Google account before getting started to securely save your changes online.",
       "sign_in_desc2":"You can stay signed out if you want, but your page won't be saved online and you won't be able to access it from other computers.",
@@ -36,15 +42,15 @@
     },
     "widgets":{
       "configure":"Let's configure a widget.",
-      "configure_desc":"Click the wrench to open the weather widget's <b>settings<\/b>.",
+      "configure_desc":"Click the wrench to open the weather widget's <b>settings</b>.",
       "configure_skip":"Skip",
-      "settings":"Replace <b>San Francisco, CA<\/b> with your location, then press <b>Save<\/b>.",
-      "move":"You can <b>drag<\/b> widgets using the highlighted handle to move them.",
-      "remove":"When dragging a widget, drop it on the red bar (not shown) to <b>remove<\/b> it.",
+      "settings":"Replace <b>San Francisco, CA</b> with your location, then press <b>Save</b>.",
+      "move":"You can <b>drag</b> widgets using the highlighted handle to move them.",
+      "remove":"When dragging a widget, drop it on the red bar (not shown) to <b>remove</b> it.",
       "done":"Got it"
     },
     "settings":{
-      "intro":"Now let's take a look at <b>the menu<\/b> and see what else you can do.",
+      "intro":"Now let's take a look at <b>the menu</b> and see what else you can do.",
       "instructions":"Click the highlighted image to open it.",
       "skip":"Skip",
       "tooltips":{
@@ -56,7 +62,7 @@
         "support":"Send us a message or leave a review here"
       },
       "finished":"That's it!",
-      "finished_next":"Choose an option from the menu (try starting with <b>Widgets<\/b>) and set your page up!",
+      "finished_next":"Choose an option from the menu (try starting with <b>Widgets</b>) and set your page up!",
       "finished_contact":"Use the support link if you need any help and we'll get back to you ASAP."
     }
   },
@@ -77,6 +83,10 @@
   "toolbar":{
     "placeholder":"अपने शब्द दर्ज करें",
     "placeholder_ok":"अपने शब्द दर्ज करें या \"OK, Google\" कहें",
+    "suggestions":{
+      "url_subtext":"Visit URL",
+      "capture_notice":"iChrome handles searches you normally make from the Omnibox. You can disable this at any time from the settings"
+    },
     "apps":{
       "search":"खोज",
       "youtube":"यूट्यूब",
@@ -109,7 +119,7 @@
   "voice":{
     "listening":"सुन रहा हूं...",
     "searching":"खोजा जा रहा है: %s",
-    "missed":"समझ नही पाया। <a>दुबारा प्रयास करें<\/a>"
+    "missed":"समझ नही पाया। <a>दुबारा प्रयास करें</a>"
   },
   "settings":{
     "title":"सेटिंग्स",
@@ -120,7 +130,8 @@
       "visual_sections":{
         "background":"Background",
         "layout":"लेआउट",
-        "theme":"App theme"
+        "theme":"App theme",
+        "ad_placement":"Ad placement"
       },
       "toolbar":"Toolbar",
       "toolbar_sections":{
@@ -130,6 +141,7 @@
       },
       "tabs":"टैब्स",
       "widgets":"विजेट्स",
+      "ads":"Ads",
       "pro":"Pro",
       "accounts":"Account",
       "misc":"Miscellaneous",
@@ -188,9 +200,10 @@
         "title":"खोज",
         "desc":"These settings control how the search box and voice search function",
         "engine":"Search engine",
-        "engines_google":"Google (Default)",
+        "engines_default":"Default",
         "engines_custom":"अनुकूल",
-        "engines_custom_desc":"Enter a URL that queries should be sent to, with <b>%s<\/b> where the query should go.",
+        "engines_custom_desc":"Enter a URL that queries should be sent to, with <b>%s</b> where the query should go.",
+        "omnibox_capture":"Handle searches normally made in the Omnibox",
         "voice":"Enable voice search",
         "ok_google":"Enable \"OK Google\" hotword detection",
         "search_tab":"Open search results in a new tab"
@@ -203,7 +216,7 @@
         "custom_note1":"Maximum of 3 allowed",
         "custom_note2":"users get 8",
         "custom_name_placeholder":"Link text",
-        "custom_url_placeholder":"Link URL, i.e. https:\/\/www.google.com\/"
+        "custom_url_placeholder":"Link URL, i.e. https://www.google.com/"
       }
     },
     "misc":{
@@ -220,10 +233,10 @@
     "accounts":{
       "status":{
         "title":"Status",
-        "signed_in":"You are currently <b>signed in<\/b> as %s (%s).",
+        "signed_in":"You are currently <b>signed in</b> as %s (%s).",
         "reset_account":"Reset account",
         "sign_out":"Sign out",
-        "signed_out":"You are <b>not currently signed in<\/b>. Sign in with your Google account now to securely store and sync your configuration.",
+        "signed_out":"You are <b>not currently signed in</b>. Sign in with your Google account now to securely store and sync your configuration.",
         "sign_in":"Sign in with Google"
       },
       "reset_confirm_desc":"This will erase all local and synced data, there is no backup and no way to undo this.",
@@ -244,12 +257,12 @@
       },
       "css":{
         "title":"Custom CSS",
-        "desc":"You can use CSS (<a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/CSS\" target=\"blank\">definition<\/a>) to customize almost any part of iChrome.",
+        "desc":"You can use CSS (<a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS\" target=\"blank\">definition</a>) to customize almost any part of iChrome.",
         "placeholder":"Enter up to 1000 characters of CSS here"
       },
       "debug_tools":{
         "title":"Debug tools",
-        "desc":"<b>WARNING:<\/b> These tools can erase your entire configuration in a single click. Only use them if your developer instructs you to.",
+        "desc":"<b>WARNING:</b> These tools can erase your entire configuration in a single click. Only use them if your developer instructs you to.",
         "open":"Open tools"
       }
     },
@@ -282,6 +295,7 @@
         "bg_downloads":"Downloadable backgrounds",
         "weather":"Hourly weather forecasts up to 10 days out",
         "toolbar":"More toolbar links",
+        "ads":"A completely ad-free experience",
         "support":"Prioritized support and suggestions",
         "buy_pro":"Buy Pro"
       },
@@ -316,7 +330,7 @@
           "education":"Education",
           "custom":"अनुकूल"
         },
-        "uneditable_desc":"Business, education, and custom plans cannot be updated from within iChrome. Please <a href=\"mailto:support@ichro.me\">contact us<\/a> to update or cancel your subscription.",
+        "uneditable_desc":"Business, education, and custom plans cannot be updated from within iChrome. Please <a href=\"mailto:support@ichro.me\">contact us</a> to update or cancel your subscription.",
         "status":"Status",
         "status_active":"Active",
         "status_trial":"Trial",
@@ -330,6 +344,24 @@
         "cancel":"Cancel subscription",
         "cancel_notice":"Your subscription will be canceled immediately",
         "cancel_notice2":"If you would like a refund, please contact us at support@ichro.me"
+      }
+    },
+    "ads":{
+      "text1":"iChrome displays a few small ads to pay for server, support and development costs. With these ads, we can afford to offer iChrome free to everyone.",
+      "text2":"Here you can choose where those ads are shown, or buy ad-free to permanently remove them.",
+      "text3":"Ad-free is a one-time purchase that permanently removes ads from iChrome wherever you're signed in. You can also upgrade to Pro for extra features in addition to an ad-free experience.",
+      "upgrade_btn":"Upgrade to ad-free",
+      "already_upgraded":"It looks like you've already upgraded to ad-free",
+      "signin":"Sign in",
+      "signin_desc":"Sign in before upgrading so we can link your purchase to your account",
+      "signin_btn":"Sign in",
+      "thank_you":"Thank you for upgrading to ad-free!",
+      "placement":{
+        "title":"Ad placement",
+        "left":"In the leftmost column",
+        "right":"In the rightmost column",
+        "top":"Above the tab",
+        "bottom":"Floating at the bottom"
       }
     }
   },
@@ -385,7 +417,7 @@
           "hide":"छिपाएँ"
         },
         "account":"Account ID",
-        "account_help":"If you're signed into multiple accounts, this is the \"authuser=\" value.\n<br \/><br \/>\nFor example, if you're signed into two accounts, jsmith1@gmail.com and jsmith2@gmail.com, the \"authuser\" value for jsmith2@gmail.com would be 1 since it's the second account (counting from zero) that you're signed into.",
+        "account_help":"If you're signed into multiple accounts, this is the \"authuser=\" value.\n<br /><br />\nFor example, if you're signed into two accounts, jsmith1@gmail.com and jsmith2@gmail.com, the \"authuser\" value for jsmith2@gmail.com would be 1 since it's the second account (counting from zero) that you're signed into.",
         "account_placeholder":"Your \"authuser=\" value",
         "on":"ऑन",
         "off":"ऑफ"
@@ -436,7 +468,7 @@
       "name_placeholder":"थीम का नाम दर्ज करें",
       "image":"छवि URL",
       "image_placeholder":"एक पृष्ठभूमि छवि का URL दर्ज करें",
-      "image_help":"Uploaded images <b>cannot be synced<\/b> between computers.<br \/><br \/>If this is important to you, please upload your image to a service such as <a href=\"http:\/\/imgur.com\/\" target=\"_blank\">imgur<\/a>. Then copy and paste the URL ending with an extension (i.e. .jpg) and paste it into the field on the left.",
+      "image_help":"Uploaded images <b>cannot be synced</b> between computers.<br /><br />If this is important to you, please upload your image to a service such as <a href=\"http://imgur.com/\" target=\"_blank\">imgur</a>. Then copy the URL ending with an extension (i.e. .jpg) and paste it into the field on the left.",
       "color":"फ़ॉलबैक रंग",
       "color_placeholder":"किसी भी रंग का नाम दर्ज करें",
       "position":"पोजीशन (स्थान)",

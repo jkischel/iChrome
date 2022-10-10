@@ -80,9 +80,6 @@ define(["lodash", "browser/api", "i18n/i18n", "modals/alert", "core/analytics", 
 						cb("Network error");
 					}
 					else if (retry) {
-						// If an error occurs, we try again. If the request fails twice, we sign the user out.
-						Auth.signout(true);
-
 						cb("Server error");
 					}
 					else {
@@ -130,7 +127,7 @@ define(["lodash", "browser/api", "i18n/i18n", "modals/alert", "core/analytics", 
 					sData.authToken = Auth.get("token");
 				}
 
-				return cb(navigator.sendBeacon(SYNC_URL, new Blob([sData], { type: "application/json" })));
+				return cb(navigator.sendBeacon(SYNC_URL, new Blob([sData], { type: "text/plain" })));
 			}
 
 			Auth.ajax({
@@ -163,9 +160,6 @@ define(["lodash", "browser/api", "i18n/i18n", "modals/alert", "core/analytics", 
 						cb("Network error");
 					}
 					else if (retry) {
-						// If an error occurs, we try again. If the request fails twice, we sign the user out.
-						Auth.signout(true);
-
 						cb("Server error");
 					}
 					else {

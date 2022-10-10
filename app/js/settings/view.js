@@ -5,8 +5,8 @@ define([
 	"lodash", "jquery", "backbone", "core/analytics", "i18n/i18n", "modals/snackbar", "settings/model", "core/render",
 
 	"settings/pages/accounts", "settings/pages/advanced", "settings/pages/misc", "settings/pages/pro",
-	"settings/pages/tabs", "settings/pages/toolbar", "settings/pages/visual", "settings/pages/widgets"
-], function(_, $, Backbone, Track, Translate, Snackbar, model, render, Accounts, Advanced, Misc, Pro, Tabs, Toolbar, Visual, Widgets) {
+	"settings/pages/tabs", "settings/pages/toolbar", "settings/pages/visual", "settings/pages/widgets", "settings/pages/ads"
+], function(_, $, Backbone, Track, Translate, Snackbar, model, render, Accounts, Advanced, Misc, Pro, Tabs, Toolbar, Visual, Widgets, Ads) {
 	var pages = {
 		accounts: Accounts,
 		advanced: Advanced,
@@ -16,6 +16,7 @@ define([
 		toolbar: Toolbar,
 		visual: Visual,
 		widgets: Widgets,
+		ads: Ads
 	};
 
 	var View = Backbone.View.extend({
@@ -55,6 +56,10 @@ define([
 
 		navigate: function(itm, cb) {
 			cb = typeof cb === "function" ? cb : _.noop;
+
+			if (typeof itm === "string") {
+				itm = this.$(".side-nav nav > ul > li[data-id='" + itm + "']");
+			}
 
 			var page = itm.attr("data-id");
 
@@ -97,7 +102,7 @@ define([
 			}
 		},
 
-		show: function() {
+		show: function(page) {
 			if (this._activePage) {
 				this.pages[this._activePage].$el.detach();
 
@@ -106,7 +111,7 @@ define([
 
 			this.$el.html(render("settings"));
 
-			this.navigate(this.$(".side-nav nav > ul > li:first"));
+			this.navigate(page || this.$(".side-nav nav > ul > li:first"));
 
 			// The settings are a "page", not a modal. The document shouldn't scroll.
 			//
@@ -122,6 +127,8 @@ define([
 				easing: "cubic-bezier(.4, 0, .2, 1)"
 			});
 
+			Track.FB.logEvent("VIEWED_CONTENT", null, { fb_content_type: "page", fb_content_id: "settings" });
+
 			Track.pageview("Settings", "/settings");
 		},
 
@@ -131,7 +138,6 @@ define([
 				{ opacity: 0 }
 			], {
 				duration: 150,
-				direction: "forwards",
 				easing: "cubic-bezier(.4, 0, .2, 1)"
 			}).onfinish = function() {
 				this.$el.removeClass("visible");
@@ -142,24 +148,33 @@ define([
 
 
 		/**
-		 * Displays the tabs page and creates a new tab
+		 * Creates a new tab
 		 */
 		createTab: function() {
-			this.navigate(this.$(".side-nav nav > ul > li[data-id='tabs']"));
-
 			this.pages.tabs.createTab();
 		},
 
-		initialize: function() {
+		initialize: function(options) {
 			this.model = model();
 
 			this.listenTo(this.model, "save", function() {
 				new Snackbar(Translate("settings.saved"));
 			});
 
-			this.show();
+			this.show(options && options.page);
 		}
 	});
 
-	return View;
+	var Settings = null;
+
+	return function(page) {
+		if (Settings) {
+			Settings.show(page);
+
+			return Settings;
+		}
+		else {
+			return (Settings = new View({ page: page }));
+		}
+	};
 });

@@ -27,6 +27,10 @@
 				<span class="header">{{i18n.settings.nav.tabs}}</span>
 			</li>
 
+			<li data-id="ads">
+				<span class="header">{{i18n.settings.nav.ads}}</span>
+			</li>
+
 			<li data-id="widgets">
 				<span class="header">{{i18n.settings.nav.widgets}}</span>
 			</li>

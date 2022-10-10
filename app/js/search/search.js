@@ -1,7 +1,9 @@
 /**
  * This handles the searchbox
  */
-define(["backbone", "storage/storage", "core/render", "core/analytics", "search/suggestions", "search/speech"], function(Backbone, Storage, render, Track, Suggestions, Speech) {
+define([
+	"backbone", "browser/api", "storage/storage", "core/render", "core/analytics", "search/suggestions", "search/speech"
+], function(Backbone, Browser, Storage, render, Track, Suggestions, Speech) {
 	var Model = Backbone.Model.extend({
 			init: function() {
 				Storage.on("done updated", function(storage) {
@@ -56,10 +58,38 @@ define(["backbone", "storage/storage", "core/render", "core/analytics", "search/
 					}
 				}
 			},
-			submit: function(val) {
+			submit: function(val, speech) {
+				var newTab = this.model.get("searchInNewTab");
+
 				if (typeof val !== "string") {
 					val = this.$("input").val().trim();
+				}
 
+
+				var queryURL = this.Suggestions.isURL(val);
+
+				if (queryURL && (queryURL.indexOf("chrome:") === 0 || queryURL.indexOf("about:"))) {
+					Browser.tabs.getCurrent(function(d) {
+						if (newTab) {
+							Browser.tabs.create({
+								url: queryURL,
+								index: d.index + 1
+							});
+						}
+						else {
+							Browser.tabs.update(d.id, {
+								url: queryURL
+							});
+						}
+					});
+
+					return;
+				}
+
+
+				Track.FB.logEvent("SEARCHED", null, { fb_search_string: val });
+
+				if (!speech) {
 					Track.queue("search", val);
 
 					Track.ga("send", {
@@ -70,12 +100,18 @@ define(["backbone", "storage/storage", "core/render", "core/analytics", "search/
 					});
 				}
 
-				var searchURL = this.model.get("searchURL") || "https://www.google.com/search?q=%s",
-					link = document.createElement("a");
 
-				link.setAttribute("href", searchURL.replace("%s", encodeURIComponent(val)));
+				var searchURL = "https://search.ichro.me/search?" +
+					"ext=" + (Browser.app.newTab ? "newtab" : "main") +
+					"&version=" + Browser.app.version +
+					"&engine=" + encodeURIComponent(this.model.get("searchEngine") || "default") +
+					"&q=" + encodeURIComponent(val);
 
-				link.setAttribute("target", (this.model.get("searchInNewTab") ? "_blank" : "_self"));
+				var link = document.createElement("a");
+
+				link.setAttribute("href", queryURL || searchURL);
+
+				link.setAttribute("target", (newTab ? "_blank" : "_self"));
 
 				link.click();
 			},
@@ -84,10 +120,22 @@ define(["backbone", "storage/storage", "core/render", "core/analytics", "search/
 
 				Track.event("Search", "Speech", "Start");
 			},
+			onSpeechResult: function(val) {
+				Track.queue("search", val, true);
+
+				Track.ga("send", {
+					useBeacon: true,
+					hitType: "pageview",
+					title: "Voice Search: " + val,
+					page: "/search/speech?q=" + encodeURIComponent(val)
+				});
+
+				this.submit(val, true);
+			},
 			initialize: function() {
 				this.model = new Model();
 
-				this.Speech = new Speech();
+				this.Speech = Speech();
 
 				this.Suggestions = new Suggestions();
 
@@ -98,18 +146,29 @@ define(["backbone", "storage/storage", "core/render", "core/analytics", "search/
 					this.submit(val);
 				}, this);
 
-				this.Speech.on("result", function(val) {
-					Track.queue("search", val, true);
+				this.Speech.on("result", this.onSpeechResult, this);
 
-					Track.ga("send", {
-						useBeacon: true,
-						hitType: "pageview",
-						title: "Voice Search: " + val,
-						page: "/search/speech?q=" + encodeURIComponent(val)
-					});
+				this.once("inserted", function() {
+					// The preloadInput element captures text that's entered while the page is
+					// still loading so users that type quickly when opening a new tab don't
+					// lose the first part of their searches
+					var preloadInput = document.getElementById("preload-search-input"),
+						preloadScript = document.getElementById("preload-search-script");
 
-					this.submit(val);
-				}, this);
+					this.$("input").val((preloadInput && preloadInput.value) || "").focus();
+
+					if (preloadInput) {
+						if (preloadInput.getAttribute("data-submit") === "true" && preloadInput.value.trim().length) {
+							this.submit();
+						}
+
+						preloadInput.parentNode.removeChild(preloadInput);
+					}
+
+					if (preloadScript) {
+						preloadScript.parentNode.removeChild(preloadScript);
+					}
+				});
 
 				this.model.on("change:ok change:voice", this.render, this).init();
 			},
@@ -122,7 +181,7 @@ define(["backbone", "storage/storage", "core/render", "core/analytics", "search/
 						})
 					);
 
-				this.Suggestions.setElement(this.$(".suggestions"));
+				this.Suggestions.setElement(this.$(".suggestions")).trigger("element:updated");
 
 				return this;
 			}

@@ -1,5 +1,7 @@
 define(["lodash", "jquery", "widgets/model"], function(_, $, WidgetModel) {
 	return WidgetModel.extend({
+		widgetClassname: "tabbed-corner",
+
 		refreshInterval: 300000,
 
 		defaults: {
@@ -99,6 +101,13 @@ define(["lodash", "jquery", "widgets/model"], function(_, $, WidgetModel) {
 			}
 
 
+			if (!this.config.number || this.config.number > 20) {
+				this.config.number = 20;
+			}
+
+			this.authHeader = this.Auth.adFree ? "API_KEY db72b4be78c04a3a97b2b11ea8ab1e4a" : "API_KEY 8b04677e27d5498a90e306eedbf19fb3";
+
+
 			this.set("activeTab", this.config.topic);
 
 			this.on("change", function(model, options) {
@@ -136,7 +145,6 @@ define(["lodash", "jquery", "widgets/model"], function(_, $, WidgetModel) {
 		 * Parses and normalizes articles
 		 *
 		 * @param   {Array}   docs       The items to parse
-		 * @param   {Boolean} maximized  If we're maximized and should parse larger images
 		 * @return  {Object}             An array of parsed, normalized entries
 		 */
 		parseArticles: function(docs, maximized) {
@@ -174,7 +182,7 @@ define(["lodash", "jquery", "widgets/model"], function(_, $, WidgetModel) {
 					title: e.title || "",
 					desc: textDiv.textContent.trim(),
 					date: new Date(e.displayPublishedDateTime).getTime(),
-					image: maximized ? image : image.replace(".img", "_m5_h190_w200.jpg"),
+					image: maximized ? image : (image || "").replace(".img", "_m5_h190_w200.jpg"),
 					url: (((e._links && e._links.self && e._links.self[0]) || {}).href || "").replace("cms-amp-", "http://a.msn.com/r/2/"),
 					source: e._links && e._links.provider && e._links.provider[0] && sources[e._links.provider[0].href] && sources[e._links.provider[0].href].displayName
 				};
@@ -214,7 +222,8 @@ define(["lodash", "jquery", "widgets/model"], function(_, $, WidgetModel) {
 				count: maximized ? 45 : this.config.number,
 				market: this.config.edition,
 				tenant: "amp",
-				vertical: "news"
+				vertical: "news",
+				_: new Date().getTime() //to avoid caching
 			}, function(d) {
 				// If the active tab has changed (i.e. the user has switched tabs
 				// twice before the request finished), we don't want to emit any entries
